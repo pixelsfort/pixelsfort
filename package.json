@@ -10,6 +10,7 @@
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "lint:check": "eslint .",
+        "setup": "chmod +x scripts/start.sh && ./scripts/start.sh",
         "types:check": "tsc --noEmit"
     },
     "devDependencies": {
