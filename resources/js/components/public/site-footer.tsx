@@ -1,5 +1,4 @@
 import { Link } from '@inertiajs/react';
-import { useState } from 'react';
 import {
     ArrowUp,
     ArrowUpRight,
@@ -7,7 +6,6 @@ import {
     CheckCircle2,
     Code2,
     Cpu,
-    ExternalLink,
     Facebook,
     Github,
     Globe,
@@ -26,9 +24,10 @@ import {
     Sparkles,
     Twitter,
 } from 'lucide-react';
-import { home, login } from '@/routes';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { about, home, login } from '@/routes';
 
 export function SiteFooter() {
     const [email, setEmail] = useState('');
@@ -36,6 +35,7 @@ export function SiteFooter() {
 
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (email.trim()) {
             setSubscribed(true);
             setEmail('');
@@ -324,12 +324,12 @@ export function SiteFooter() {
                                 </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#about"
+                                <Link
+                                    href={about.url()}
                                     className="transition-colors hover:text-primary"
                                 >
-                                    Engineering Careers
-                                </a>
+                                    About PixelsFort Tech
+                                </Link>
                             </li>
                             <li>
                                 <Link
