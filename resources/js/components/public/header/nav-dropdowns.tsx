@@ -15,6 +15,7 @@ import {
     FileText,
     Layers,
     Briefcase,
+    BookOpen,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,7 +24,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { about } from '@/routes';
+import { about, blog } from '@/routes';
 
 export function ServicesDropdown() {
     return (
@@ -44,13 +45,13 @@ export function ServicesDropdown() {
                 <div className="grid grid-cols-2 gap-2">
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2.5 hover:bg-accent"
+                        className="cursor-pointer p-2.5 hover:bg-accent"
                     >
                         <a
                             href="#services-software"
                             className="flex items-start gap-3"
                         >
-                            <div className="rounded-md bg-primary/10 p-2 text-primary">
+                            <div className="bg-primary/10 p-2 text-primary">
                                 <Code2 className="size-4" />
                             </div>
                             <div>
@@ -66,13 +67,13 @@ export function ServicesDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2.5 hover:bg-accent"
+                        className="cursor-pointer p-2.5 hover:bg-accent"
                     >
                         <a
                             href="#services-mobile"
                             className="flex items-start gap-3"
                         >
-                            <div className="rounded-md bg-blue-500/10 p-2 text-blue-600 dark:text-blue-400">
+                            <div className="bg-blue-500/10 p-2 text-blue-600 dark:text-blue-400">
                                 <Smartphone className="size-4" />
                             </div>
                             <div>
@@ -88,13 +89,13 @@ export function ServicesDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2.5 hover:bg-accent"
+                        className="cursor-pointer p-2.5 hover:bg-accent"
                     >
                         <a
                             href="#services-cloud"
                             className="flex items-start gap-3"
                         >
-                            <div className="rounded-md bg-indigo-500/10 p-2 text-indigo-600 dark:text-indigo-400">
+                            <div className="bg-indigo-500/10 p-2 text-indigo-600 dark:text-indigo-400">
                                 <Cloud className="size-4" />
                             </div>
                             <div>
@@ -110,13 +111,13 @@ export function ServicesDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2.5 hover:bg-accent"
+                        className="cursor-pointer p-2.5 hover:bg-accent"
                     >
                         <a
                             href="#services-ai"
                             className="flex items-start gap-3"
                         >
-                            <div className="rounded-md bg-purple-500/10 p-2 text-purple-600 dark:text-purple-400">
+                            <div className="bg-purple-500/10 p-2 text-purple-600 dark:text-purple-400">
                                 <Cpu className="size-4" />
                             </div>
                             <div>
@@ -132,13 +133,13 @@ export function ServicesDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2.5 hover:bg-accent"
+                        className="cursor-pointer p-2.5 hover:bg-accent"
                     >
                         <a
                             href="#services-security"
                             className="flex items-start gap-3"
                         >
-                            <div className="rounded-md bg-emerald-500/10 p-2 text-emerald-600 dark:text-emerald-400">
+                            <div className="bg-emerald-500/10 p-2 text-emerald-600 dark:text-emerald-400">
                                 <ShieldCheck className="size-4" />
                             </div>
                             <div>
@@ -154,13 +155,13 @@ export function ServicesDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2.5 hover:bg-accent"
+                        className="cursor-pointer p-2.5 hover:bg-accent"
                     >
                         <a
                             href="#services-design"
                             className="flex items-start gap-3"
                         >
-                            <div className="rounded-md bg-rose-500/10 p-2 text-rose-600 dark:text-rose-400">
+                            <div className="bg-rose-500/10 p-2 text-rose-600 dark:text-rose-400">
                                 <Palette className="size-4" />
                             </div>
                             <div>
@@ -198,7 +199,7 @@ export function SolutionsDropdown() {
                 <div className="space-y-1">
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                        className="cursor-pointer p-2 hover:bg-accent"
                     >
                         <a
                             href="#solutions-enterprise"
@@ -218,7 +219,7 @@ export function SolutionsDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                        className="cursor-pointer p-2 hover:bg-accent"
                     >
                         <a
                             href="#solutions-saas"
@@ -239,7 +240,7 @@ export function SolutionsDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                        className="cursor-pointer p-2 hover:bg-accent"
                     >
                         <a
                             href="#solutions-ecommerce"
@@ -259,7 +260,7 @@ export function SolutionsDropdown() {
 
                     <DropdownMenuItem
                         asChild
-                        className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                        className="cursor-pointer p-2 hover:bg-accent"
                     >
                         <a
                             href="#solutions-migration"
@@ -297,7 +298,7 @@ export function CompanyDropdown() {
             >
                 <DropdownMenuItem
                     asChild
-                    className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                    className="cursor-pointer p-2 hover:bg-accent"
                 >
                     <Link
                         href={about.url()}
@@ -317,7 +318,27 @@ export function CompanyDropdown() {
 
                 <DropdownMenuItem
                     asChild
-                    className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                    className="cursor-pointer p-2 hover:bg-accent"
+                >
+                    <Link
+                        href={blog.url()}
+                        className="flex items-center gap-3"
+                    >
+                        <BookOpen className="size-4 text-primary" />
+                        <div>
+                            <div className="text-sm font-semibold">
+                                Blog & Engineering Insights
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                                Architecture, cloud & systems articles
+                            </div>
+                        </div>
+                    </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem
+                    asChild
+                    className="cursor-pointer p-2 hover:bg-accent"
                 >
                     <a href="#case-studies" className="flex items-center gap-3">
                         <FileText className="size-4 text-primary" />
@@ -334,7 +355,7 @@ export function CompanyDropdown() {
 
                 <DropdownMenuItem
                     asChild
-                    className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                    className="cursor-pointer p-2 hover:bg-accent"
                 >
                     <a href="#tech-stack" className="flex items-center gap-3">
                         <Layers className="size-4 text-primary" />
@@ -351,7 +372,7 @@ export function CompanyDropdown() {
 
                 <DropdownMenuItem
                     asChild
-                    className="cursor-pointer rounded-lg p-2 hover:bg-accent"
+                    className="cursor-pointer p-2 hover:bg-accent"
                 >
                     <a href="#careers" className="flex items-center gap-3">
                         <Briefcase className="size-4 text-primary" />
@@ -360,7 +381,7 @@ export function CompanyDropdown() {
                                 <span className="text-sm font-semibold">
                                     Careers
                                 </span>
-                                <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
+                                <span className="bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
                                     We're Hiring
                                 </span>
                             </div>
@@ -381,6 +402,10 @@ export function DesktopNav() {
             <ServicesDropdown />
             <SolutionsDropdown />
             <CompanyDropdown />
+
+            <Button variant="ghost" asChild className="text-sm font-medium">
+                <Link href={blog.url()}>Blog</Link>
+            </Button>
 
             <Button variant="ghost" asChild className="text-sm font-medium">
                 <a href="#pricing">Pricing</a>

@@ -7,12 +7,12 @@ export function AboutHero() {
     return (
         <section className="relative overflow-hidden border-b border-border/40 bg-gradient-to-b from-background via-background/95 to-muted/20 pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
             {/* Subtle background glow */}
-            <div className="pointer-events-none absolute -top-32 left-1/2 -z-10 size-[500px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-primary/15 via-indigo-500/10 to-sky-500/10 opacity-70 blur-3xl" />
+            <div className="pointer-events-none absolute -top-32 left-1/2 -z-10 size-[500px] -translate-x-1/2 bg-gradient-to-tr from-primary/15 via-indigo-500/10 to-sky-500/10 opacity-70 blur-3xl" />
             <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40 dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]" />
 
             <div className="container mx-auto max-w-5xl space-y-8 px-4 text-center sm:px-6 lg:px-8">
                 {/* Minimal Pill */}
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-medium text-primary dark:bg-primary/20 dark:text-primary-foreground">
+                <div className="inline-flex items-center gap-2 border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-medium text-primary dark:bg-primary/20 dark:text-primary-foreground">
                     <Sparkles className="size-3.5" />
                     <span className="font-semibold">About PixelsFort Tech</span>
                     <span className="text-muted-foreground/60">•</span>

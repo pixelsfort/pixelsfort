@@ -51,7 +51,7 @@ export function AboutValues() {
         <section className="relative border-b border-border/40 bg-muted/10 py-20 lg:py-28">
             <div className="container mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-3xl space-y-4 text-center">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                    <span className="inline-flex items-center gap-1.5 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                         <Sparkles className="size-3.5" />
                         Core Operating Principles
                     </span>
@@ -71,10 +71,10 @@ export function AboutValues() {
                         return (
                             <div
                                 key={idx}
-                                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/70 bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
+                                className="group relative flex flex-col justify-between overflow-hidden border border-border/70 bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
                             >
                                 <div className="space-y-4">
-                                    <div className="inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                                    <div className="inline-flex bg-primary/10 p-3 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                                         <Icon className="size-5" />
                                     </div>
                                     <h3 className="text-lg font-bold tracking-tight text-foreground">

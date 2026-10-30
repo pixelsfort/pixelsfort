@@ -23,7 +23,7 @@ export function HeaderActions({
                 size="icon"
                 onClick={toggleTheme}
                 title={`Switch to ${resolvedAppearance === 'dark' ? 'light' : 'dark'} mode`}
-                className="rounded-full text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground"
             >
                 {resolvedAppearance === 'dark' ? (
                     <Sun className="size-4" />

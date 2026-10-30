@@ -7,14 +7,14 @@ export function AboutCTA() {
     return (
         <section className="relative overflow-hidden py-20 lg:py-28">
             {/* Background Glow */}
-            <div className="pointer-events-none absolute -bottom-24 left-1/2 -z-10 size-[600px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-primary/15 via-indigo-500/10 to-sky-500/10 opacity-80 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 left-1/2 -z-10 size-[600px] -translate-x-1/2 bg-gradient-to-tr from-primary/15 via-indigo-500/10 to-sky-500/10 opacity-80 blur-3xl" />
 
             <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-                <div className="relative space-y-8 overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-b from-card via-card/90 to-background p-8 text-center shadow-2xl sm:p-12 lg:p-16">
+                <div className="relative space-y-8 overflow-hidden border border-primary/30 bg-gradient-to-b from-card via-card/90 to-background p-8 text-center shadow-2xl sm:p-12 lg:p-16">
                     {/* Ambient Accent Ribbon */}
-                    <div className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-primary/20 blur-3xl" />
+                    <div className="pointer-events-none absolute -top-24 -right-24 size-64 bg-primary/20 blur-3xl" />
 
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary">
+                    <div className="inline-flex items-center gap-1.5 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary">
                         <Sparkles className="size-3.5" />
                         <span>Let's Build Together</span>
                     </div>
@@ -77,7 +77,7 @@ export function AboutCTA() {
                             </a>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span className="size-2 animate-pulse rounded-full bg-emerald-500" />
+                            <span className="size-2 animate-pulse bg-emerald-500" />
                             <span>Accepting New Q2/Q3 Projects</span>
                         </div>
                     </div>

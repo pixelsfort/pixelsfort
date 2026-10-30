@@ -25,9 +25,10 @@ import {
     Twitter,
 } from 'lucide-react';
 import { useState } from 'react';
+import { PixelsfortLogo } from '@/components/pixelsfort-logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { about, home, login } from '@/routes';
+import { about, blog, home, login } from '@/routes';
 
 export function SiteFooter() {
     const [email, setEmail] = useState('');
@@ -52,17 +53,17 @@ export function SiteFooter() {
     return (
         <footer className="relative w-full overflow-hidden border-t border-border/60 bg-gradient-to-b from-background via-muted/30 to-muted/60 pt-16 pb-12 transition-colors duration-300">
             {/* Background Decorator Gradients */}
-            <div className="pointer-events-none absolute top-0 left-1/4 size-96 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
-            <div className="pointer-events-none absolute right-1/4 bottom-0 size-96 translate-y-1/3 rounded-full bg-indigo-500/10 blur-3xl" />
+            <div className="pointer-events-none absolute top-0 left-1/4 size-96 -translate-y-1/2 bg-primary/10 blur-3xl" />
+            <div className="pointer-events-none absolute right-1/4 bottom-0 size-96 translate-y-1/3 bg-indigo-500/10 blur-3xl" />
 
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* 1. Top Tech Consultation & Newsletter Dispatch Card */}
-                <div className="relative mb-16 overflow-hidden rounded-2xl border border-primary/20 bg-card/80 p-6 shadow-xl backdrop-blur-xl sm:p-10">
-                    <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-gradient-to-br from-primary/20 to-indigo-500/20 blur-2xl" />
+                <div className="relative mb-16 overflow-hidden border border-primary/20 bg-card/80 p-6 shadow-xl backdrop-blur-xl sm:p-10">
+                    <div className="pointer-events-none absolute -top-24 -right-24 size-72 bg-gradient-to-br from-primary/20 to-indigo-500/20 blur-2xl" />
 
                     <div className="relative z-10 grid gap-8 lg:grid-cols-12 lg:items-center">
                         <div className="space-y-2 lg:col-span-7">
-                            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                            <div className="inline-flex items-center gap-2 border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                                 <Sparkles className="size-3.5" />
                                 <span>PixelsFort Tech Dispatch</span>
                             </div>
@@ -79,7 +80,7 @@ export function SiteFooter() {
 
                         <div className="lg:col-span-5">
                             {subscribed ? (
-                                <div className="flex items-center gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-emerald-600 dark:text-emerald-400">
+                                <div className="flex items-center gap-3 border border-emerald-500/30 bg-emerald-500/10 p-4 text-emerald-600 dark:text-emerald-400">
                                     <CheckCircle2 className="size-5 shrink-0" />
                                     <p className="text-sm font-medium">
                                         Thank you for subscribing! Check your
@@ -127,28 +128,13 @@ export function SiteFooter() {
                     <div className="space-y-5 sm:col-span-2 lg:col-span-4">
                         <Link
                             href={home.url()}
-                            className="group inline-flex items-center gap-3"
+                            className="group inline-flex flex-col items-start gap-1.5 transition-opacity hover:opacity-90"
+                            aria-label="Pixelsfort Home"
                         >
-                            <div className="relative flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary via-indigo-600 to-blue-500 shadow-md transition-transform duration-300 group-hover:scale-105">
-                                <div className="grid grid-cols-2 gap-1 p-1">
-                                    <span className="size-2 rounded-xs bg-white" />
-                                    <span className="size-2 rounded-xs bg-white/70" />
-                                    <span className="size-2 rounded-xs bg-white/70" />
-                                    <span className="size-2 rounded-xs bg-white" />
-                                </div>
-                                <div className="absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-xl font-extrabold tracking-tight text-foreground">
-                                    Pixels
-                                    <span className="bg-gradient-to-r from-primary to-indigo-500 bg-clip-text text-transparent">
-                                        Fort
-                                    </span>
-                                </span>
-                                <span className="text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
-                                    Tech Pvt. Ltd.
-                                </span>
-                            </div>
+                            <PixelsfortLogo className="h-8 w-auto text-foreground transition-transform duration-300 group-hover:scale-[1.02]" />
+                            <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+                                Tech Pvt. Ltd.
+                            </span>
                         </Link>
 
                         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -160,10 +146,10 @@ export function SiteFooter() {
                         </p>
 
                         {/* Live Availability Status */}
-                        <div className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
+                        <div className="inline-flex items-center gap-2 border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
                             <span className="relative flex size-2">
-                                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+                                <span className="absolute inline-flex size-full animate-ping bg-emerald-400 opacity-75" />
+                                <span className="relative inline-flex size-2 bg-emerald-500" />
                             </span>
                             <span>
                                 All Systems Operational • Taking New Client
@@ -333,6 +319,14 @@ export function SiteFooter() {
                             </li>
                             <li>
                                 <Link
+                                    href={blog.url()}
+                                    className="transition-colors hover:text-primary"
+                                >
+                                    Engineering Blog & Insights
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
                                     href={login.url()}
                                     className="group flex items-center gap-1.5 transition-colors hover:text-primary"
                                 >
@@ -375,7 +369,7 @@ export function SiteFooter() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="PixelsFort Instagram"
-                                className="flex size-9 items-center justify-center rounded-xl border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-500/50 hover:bg-pink-500/10 hover:text-pink-500"
+                                className="flex size-9 items-center justify-center border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-500/50 hover:bg-pink-500/10 hover:text-pink-500"
                             >
                                 <Instagram className="size-4" />
                             </a>
@@ -384,7 +378,7 @@ export function SiteFooter() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="PixelsFort Facebook"
-                                className="flex size-9 items-center justify-center rounded-xl border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-600/50 hover:bg-blue-600/10 hover:text-blue-600"
+                                className="flex size-9 items-center justify-center border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-600/50 hover:bg-blue-600/10 hover:text-blue-600"
                             >
                                 <Facebook className="size-4" />
                             </a>
@@ -393,7 +387,7 @@ export function SiteFooter() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="PixelsFort X (Twitter)"
-                                className="flex size-9 items-center justify-center rounded-xl border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/50 hover:bg-foreground/10 hover:text-foreground"
+                                className="flex size-9 items-center justify-center border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/50 hover:bg-foreground/10 hover:text-foreground"
                             >
                                 <Twitter className="size-4" />
                             </a>
@@ -402,7 +396,7 @@ export function SiteFooter() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="PixelsFort LinkedIn"
-                                className="flex size-9 items-center justify-center rounded-xl border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-500"
+                                className="flex size-9 items-center justify-center border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-500"
                             >
                                 <Linkedin className="size-4" />
                             </a>
@@ -411,7 +405,7 @@ export function SiteFooter() {
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="PixelsFort GitHub"
-                                className="flex size-9 items-center justify-center rounded-xl border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/50 hover:bg-foreground/10 hover:text-foreground"
+                                className="flex size-9 items-center justify-center border border-border/60 bg-background/80 text-muted-foreground shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/50 hover:bg-foreground/10 hover:text-foreground"
                             >
                                 <Github className="size-4" />
                             </a>
@@ -419,15 +413,15 @@ export function SiteFooter() {
 
                         {/* Trust Badges */}
                         <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-                            <div className="flex items-center gap-1.5 rounded-lg border border-border/40 bg-background/60 px-3 py-1.5">
+                            <div className="flex items-center gap-1.5 border border-border/40 bg-background/60 px-3 py-1.5">
                                 <ShieldCheck className="size-3.5 text-primary" />
                                 <span>256-Bit SSL Encrypted</span>
                             </div>
-                            <div className="flex items-center gap-1.5 rounded-lg border border-border/40 bg-background/60 px-3 py-1.5">
+                            <div className="flex items-center gap-1.5 border border-border/40 bg-background/60 px-3 py-1.5">
                                 <Globe className="size-3.5 text-indigo-500" />
                                 <span>Global Infrastructure</span>
                             </div>
-                            <div className="flex items-center gap-1.5 rounded-lg border border-border/40 bg-background/60 px-3 py-1.5">
+                            <div className="flex items-center gap-1.5 border border-border/40 bg-background/60 px-3 py-1.5">
                                 <Rocket className="size-3.5 text-emerald-500" />
                                 <span>99.9% Service SLA</span>
                             </div>
@@ -478,7 +472,7 @@ export function SiteFooter() {
                         <button
                             onClick={scrollToTop}
                             aria-label="Scroll to top"
-                            className="flex items-center gap-1.5 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium shadow-xs transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
+                            className="flex items-center gap-1.5 border border-border/60 bg-background px-3 py-1.5 text-xs font-medium shadow-xs transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
                         >
                             <span>Top</span>
                             <ArrowUp className="size-3.5" />

@@ -46,14 +46,14 @@ export function AboutStats() {
                         return (
                             <div
                                 key={idx}
-                                className="group relative overflow-hidden rounded-2xl border border-border/70 bg-card p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+                                className="group relative overflow-hidden border border-border/70 bg-card p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
                             >
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                                         {metric.value}
                                     </span>
                                     <div
-                                        className={`rounded-xl bg-muted/60 p-2.5 transition-colors group-hover:bg-primary/10 ${metric.color}`}
+                                        className={`bg-muted/60 p-2.5 transition-colors group-hover:bg-primary/10 ${metric.color}`}
                                     >
                                         <Icon className="size-5" />
                                     </div>

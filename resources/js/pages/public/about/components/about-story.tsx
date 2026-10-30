@@ -18,7 +18,7 @@ export function AboutStory() {
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                     {/* Left Narrative */}
                     <div className="space-y-6 lg:col-span-7">
-                        <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                        <div className="inline-flex items-center gap-1.5 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                             <Compass className="size-3.5" />
                             <span>Our Story & Roots</span>
                         </div>
@@ -62,12 +62,12 @@ export function AboutStory() {
 
                     {/* Right Company Entity Card */}
                     <div className="lg:col-span-5">
-                        <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card p-7 shadow-xl">
-                            <div className="pointer-events-none absolute -top-20 -right-20 size-48 rounded-full bg-primary/10 blur-2xl" />
+                        <div className="relative overflow-hidden border border-border/80 bg-card p-7 shadow-xl">
+                            <div className="pointer-events-none absolute -top-20 -right-20 size-48 bg-primary/10 blur-2xl" />
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3">
-                                    <div className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
+                                    <div className="flex size-11 items-center justify-center bg-primary text-primary-foreground shadow-sm">
                                         <Building2 className="size-5" />
                                     </div>
                                     <div>
@@ -109,7 +109,7 @@ export function AboutStory() {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-1 rounded-xl border border-primary/20 bg-primary/5 p-4 text-xs text-muted-foreground">
+                                    <div className="space-y-1 border border-primary/20 bg-primary/5 p-4 text-xs text-muted-foreground">
                                         <span className="block font-semibold text-foreground">
                                             Our Global Service Standard
                                         </span>
@@ -129,8 +129,8 @@ export function AboutStory() {
 
                 {/* Mission & Vision Split Cards */}
                 <div className="grid grid-cols-1 gap-8 pt-4 md:grid-cols-2">
-                    <div className="space-y-4 rounded-2xl border border-border/70 bg-card p-8 shadow-xs transition-all duration-300 hover:border-primary/40">
-                        <div className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <div className="space-y-4 border border-border/70 bg-card p-8 shadow-xs transition-all duration-300 hover:border-primary/40">
+                        <div className="inline-flex size-10 items-center justify-center bg-primary/10 text-primary">
                             <Target className="size-5" />
                         </div>
                         <h3 className="text-2xl font-bold tracking-tight text-foreground">
@@ -145,8 +145,8 @@ export function AboutStory() {
                         </p>
                     </div>
 
-                    <div className="space-y-4 rounded-2xl border border-border/70 bg-card p-8 shadow-xs transition-all duration-300 hover:border-indigo-500/40">
-                        <div className="inline-flex size-10 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                    <div className="space-y-4 border border-border/70 bg-card p-8 shadow-xs transition-all duration-300 hover:border-indigo-500/40">
+                        <div className="inline-flex size-10 items-center justify-center bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
                             <Compass className="size-5" />
                         </div>
                         <h3 className="text-2xl font-bold tracking-tight text-foreground">

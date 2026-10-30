@@ -10,6 +10,7 @@ import {
     FileText,
     Sparkles,
     LayoutGrid,
+    BookOpen,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,7 +20,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from '@/components/ui/sheet';
-import { about, dashboard, login, register } from '@/routes';
+import { about, blog, dashboard, login, register } from '@/routes';
 import type { Auth } from '@/types';
 
 interface MobileNavProps {
@@ -44,7 +45,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
             <SheetContent side="right" className="w-[300px] p-0 sm:w-[350px]">
                 <SheetHeader className="border-b border-border/50 p-4 text-left">
                     <SheetTitle className="flex items-center gap-2">
-                        <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                        <div className="flex size-8 items-center justify-center bg-primary text-primary-foreground">
                             <Code2 className="size-4" />
                         </div>
                         <span className="text-lg font-bold">PixelsFort</span>
@@ -61,7 +62,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <a
                                 href="#services-software"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Code2 className="size-4 text-primary" />
                                 Custom Software
@@ -69,7 +70,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <a
                                 href="#services-mobile"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Smartphone className="size-4 text-blue-500" />
                                 Mobile Apps
@@ -77,7 +78,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <a
                                 href="#services-cloud"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Cloud className="size-4 text-indigo-500" />
                                 Cloud & DevOps
@@ -85,7 +86,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <a
                                 href="#services-ai"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Cpu className="size-4 text-purple-500" />
                                 AI & Automation
@@ -101,7 +102,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <a
                                 href="#solutions-enterprise"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Building2 className="size-4 text-primary" />
                                 Enterprise Modernization
@@ -109,15 +110,23 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <Link
                                 href={about.url()}
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Users className="size-4 text-primary" />
                                 About PixelsFort
                             </Link>
+                            <Link
+                                href={blog.url()}
+                                onClick={() => setMobileOpen(false)}
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
+                            >
+                                <BookOpen className="size-4 text-primary" />
+                                Blog & Tech Insights
+                            </Link>
                             <a
                                 href="#case-studies"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <FileText className="size-4 text-primary" />
                                 Case Studies
@@ -125,7 +134,7 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                             <a
                                 href="#pricing"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 rounded-lg p-2 hover:bg-accent"
+                                className="flex items-center gap-2.5 p-2 hover:bg-accent"
                             >
                                 <Sparkles className="size-4 text-primary" />
                                 Pricing Plans
