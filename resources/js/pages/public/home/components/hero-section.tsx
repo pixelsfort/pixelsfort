@@ -207,12 +207,12 @@ export const PixelTrailBackground = forwardRef<
 // ==========================================
 export function HeroBadge() {
     return (
-        <div className="inline-flex items-center gap-2 border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-foreground/90 shadow-xs backdrop-blur-md transition-all hover:border-primary/40 hover:bg-primary/10 dark:bg-primary/10 dark:text-primary-foreground">
+        <div className="inline-flex items-center gap-2 border border-primary/20 rounded-xs bg-primary/5 px-4 py-1.5 text-xs font-medium text-foreground/90 backdrop-blur-md transition-all hover:border-primary/40 hover:bg-primary/10">
             <span className="relative flex size-2 items-center justify-center">
                 <span className="absolute inline-flex size-full animate-ping bg-primary opacity-75" />
                 <span className="relative inline-flex size-1.5 bg-primary" />
             </span>
-            <span className="flex items-center gap-1.5 font-semibold text-primary dark:text-primary-foreground">
+            <span className="flex items-center gap-1.5 font-semibold text-primary">
                 PixelsFort Studio
             </span>
             <span className="text-muted-foreground/50">•</span>
@@ -235,7 +235,7 @@ export function HeroHeading({ companyName = 'PixelsFort' }: HeroHeadingProps) {
         <div className="mx-auto max-w-4xl space-y-6 text-center">
             <h1 className="font-funnel text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl lg:leading-[1.06]">
                 Engineering Digital Products with{' '}
-                <span className="bg-gradient-to-r from-primary via-indigo-500 to-cyan-500 bg-clip-text text-transparent dark:from-primary dark:via-sky-400 dark:to-teal-300">
+                <span className="bg-gradient-to-r from-primary via-indigo-500 to-secondary bg-clip-text text-transparent dark:from-primary dark:via-sky-400 dark:to-teal-300">
                     Pixel Perfection
                 </span>
             </h1>

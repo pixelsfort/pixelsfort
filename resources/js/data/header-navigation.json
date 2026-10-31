@@ -1,0 +1,154 @@
+[
+  {
+    "id": "services",
+    "label": "Services",
+    "type": "dropdown",
+    "heading": "Our Core Engineering Capabilities",
+    "layout": "grid",
+    "columns": 2,
+    "dropdownWidth": "w-[540px]",
+    "items": [
+      {
+        "label": "Custom Software",
+        "description": "Web apps & API systems",
+        "href": "#services-software",
+        "icon": "Code2",
+        "iconBg": "bg-primary/10",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "Mobile Apps",
+        "description": "iOS & Android solutions",
+        "href": "#services-mobile",
+        "icon": "Smartphone",
+        "iconBg": "bg-blue-500/10",
+        "iconColor": "text-blue-600 dark:text-blue-400"
+      },
+      {
+        "label": "Cloud & DevOps",
+        "description": "AWS, Azure & CI/CD",
+        "href": "#services-cloud",
+        "icon": "Cloud",
+        "iconBg": "bg-indigo-500/10",
+        "iconColor": "text-indigo-600 dark:text-indigo-400"
+      },
+      {
+        "label": "AI & Automation",
+        "description": "LLMs & Machine learning",
+        "href": "#services-ai",
+        "icon": "Cpu",
+        "iconBg": "bg-purple-500/10",
+        "iconColor": "text-purple-600 dark:text-purple-400"
+      },
+      {
+        "label": "Cybersecurity",
+        "description": "Security audits & defense",
+        "href": "#services-security",
+        "icon": "ShieldCheck",
+        "iconBg": "bg-emerald-500/10",
+        "iconColor": "text-emerald-600 dark:text-emerald-400"
+      },
+      {
+        "label": "UI/UX Design",
+        "description": "Design systems & interfaces",
+        "href": "#services-design",
+        "icon": "Palette",
+        "iconBg": "bg-rose-500/10",
+        "iconColor": "text-rose-600 dark:text-rose-400"
+      }
+    ]
+  },
+  {
+    "id": "solutions",
+    "label": "Solutions",
+    "type": "dropdown",
+    "heading": "Industry Solutions",
+    "layout": "list",
+    "columns": 1,
+    "dropdownWidth": "w-[420px]",
+    "items": [
+      {
+        "label": "Enterprise IT Modernization",
+        "description": "Scale legacy architecture to cloud native",
+        "href": "#solutions-enterprise",
+        "icon": "Building2",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "SaaS Acceleration",
+        "description": "Rapid MVP to enterprise ready multi-tenant apps",
+        "href": "#solutions-saas",
+        "icon": "Rocket",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "High-Scale Digital Commerce",
+        "description": "Headless commerce & payment infrastructure",
+        "href": "#solutions-ecommerce",
+        "icon": "ShoppingCart",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "Digital Transformation",
+        "description": "End-to-end IT process automation",
+        "href": "#solutions-migration",
+        "icon": "RefreshCw",
+        "iconColor": "text-primary"
+      }
+    ]
+  },
+  {
+    "id": "company",
+    "label": "Company",
+    "type": "dropdown",
+    "layout": "list",
+    "columns": 1,
+    "dropdownWidth": "w-[360px]",
+    "items": [
+      {
+        "label": "About PixelsFort",
+        "description": "Our story, team & global vision",
+        "href": "/about",
+        "icon": "Users",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "Blog & Engineering Insights",
+        "description": "Architecture, cloud & systems articles",
+        "href": "/blog",
+        "icon": "BookOpen",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "Case Studies",
+        "description": "See how we transformed client tech",
+        "href": "#case-studies",
+        "icon": "FileText",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "Engineering Culture",
+        "description": "Our tech stack & development standards",
+        "href": "#tech-stack",
+        "icon": "Layers",
+        "iconColor": "text-primary"
+      },
+      {
+        "label": "Careers",
+        "description": "Join our high-performing team",
+        "href": "#careers",
+        "icon": "Briefcase",
+        "iconColor": "text-primary",
+        "badge": "We're Hiring"
+      }
+    ]
+  },
+  {
+    "id": "blog",
+    "label": "Insights",
+    "type": "link",
+    "href": "/blog",
+    "icon": "BookOpen"
+  }
+]
+

@@ -1,22 +1,4 @@
-import { Link } from '@inertiajs/react';
-import {
-    ChevronDown,
-    Code2,
-    Smartphone,
-    Cloud,
-    Cpu,
-    ShieldCheck,
-    Palette,
-    Building2,
-    Rocket,
-    ShoppingCart,
-    RefreshCw,
-    Users,
-    FileText,
-    Layers,
-    Briefcase,
-    BookOpen,
-} from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -24,373 +6,122 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { about, blog } from '@/routes';
+import headerNavData from '@/data/header-navigation.json';
+import { cn } from '@/lib/utils';
+import type {
+    NavDropdownMenu,
+    NavMenuItem,
+    NavSubItem,
+} from '@/types/navigation';
+import { isDirectLink, isDropdownMenu } from '@/types/navigation';
+import { NavIcon } from './nav-icon';
+import { NavLink } from './nav-link';
 
-export function ServicesDropdown() {
+export const headerNavItems = headerNavData as NavMenuItem[];
+
+export function NavDropdownItemContent({
+    item,
+    isGrid,
+}: {
+    item: NavSubItem;
+    isGrid?: boolean;
+}) {
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-1 text-sm font-medium">
-                    Services
-                    <ChevronDown className="size-3.5 opacity-60" />
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-                align="start"
-                className="w-[540px] p-4 shadow-xl"
-            >
-                <div className="mb-2 px-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-                    Our Core Engineering Capabilities
+        <NavLink
+            href={item.href}
+            external={item.external}
+            className={cn(
+                'flex w-full gap-3',
+                isGrid ? 'items-start' : 'items-center',
+            )}
+        >
+            {item.iconBg ? (
+                <div
+                    className={cn(
+                        'shrink-0 p-2',
+                        item.iconBg,
+                        item.iconColor,
+                    )}
+                >
+                    <NavIcon name={item.icon} className="size-4" />
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2.5 hover:bg-accent"
-                    >
-                        <a
-                            href="#services-software"
-                            className="flex items-start gap-3"
-                        >
-                            <div className="bg-primary/10 p-2 text-primary">
-                                <Code2 className="size-4" />
-                            </div>
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    Custom Software
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    Web apps & API systems
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2.5 hover:bg-accent"
-                    >
-                        <a
-                            href="#services-mobile"
-                            className="flex items-start gap-3"
-                        >
-                            <div className="bg-blue-500/10 p-2 text-blue-600 dark:text-blue-400">
-                                <Smartphone className="size-4" />
-                            </div>
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    Mobile Apps
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    iOS & Android solutions
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2.5 hover:bg-accent"
-                    >
-                        <a
-                            href="#services-cloud"
-                            className="flex items-start gap-3"
-                        >
-                            <div className="bg-indigo-500/10 p-2 text-indigo-600 dark:text-indigo-400">
-                                <Cloud className="size-4" />
-                            </div>
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    Cloud & DevOps
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    AWS, Azure & CI/CD
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2.5 hover:bg-accent"
-                    >
-                        <a
-                            href="#services-ai"
-                            className="flex items-start gap-3"
-                        >
-                            <div className="bg-purple-500/10 p-2 text-purple-600 dark:text-purple-400">
-                                <Cpu className="size-4" />
-                            </div>
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    AI & Automation
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    LLMs & Machine learning
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2.5 hover:bg-accent"
-                    >
-                        <a
-                            href="#services-security"
-                            className="flex items-start gap-3"
-                        >
-                            <div className="bg-emerald-500/10 p-2 text-emerald-600 dark:text-emerald-400">
-                                <ShieldCheck className="size-4" />
-                            </div>
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    Cybersecurity
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    Security audits & defense
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2.5 hover:bg-accent"
-                    >
-                        <a
-                            href="#services-design"
-                            className="flex items-start gap-3"
-                        >
-                            <div className="bg-rose-500/10 p-2 text-rose-600 dark:text-rose-400">
-                                <Palette className="size-4" />
-                            </div>
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    UI/UX Design
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    Design systems & interfaces
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
+            ) : item.icon ? (
+                <NavIcon
+                    name={item.icon}
+                    className={cn(
+                        'size-4 shrink-0',
+                        item.iconColor || 'text-primary',
+                    )}
+                />
+            ) : null}
+            <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                    <span className="truncate text-sm font-semibold">
+                        {item.label}
+                    </span>
+                    {item.badge && (
+                        <span className="shrink-0 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
+                            {typeof item.badge === 'string'
+                                ? item.badge
+                                : item.badge.text}
+                        </span>
+                    )}
                 </div>
-            </DropdownMenuContent>
-        </DropdownMenu>
+                {item.description && (
+                    <div className="line-clamp-1 text-xs text-muted-foreground">
+                        {item.description}
+                    </div>
+                )}
+            </div>
+        </NavLink>
     );
 }
 
-export function SolutionsDropdown() {
+export function NavDropdown({ menu }: { menu: NavDropdownMenu }) {
+    const isGrid = menu.columns === 2 || menu.layout === 'grid';
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="gap-1 text-sm font-medium">
-                    Solutions
+                    {menu.label}
                     <ChevronDown className="size-3.5 opacity-60" />
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
                 align="start"
-                className="w-[420px] p-3 shadow-xl"
+                className={cn(
+                    menu.dropdownWidth || (isGrid ? 'w-[540px]' : 'w-[360px]'),
+                    isGrid ? 'p-4' : 'p-3',
+                    'shadow-xl',
+                )}
             >
-                <div className="mb-2 px-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-                    Industry Solutions
+                {menu.heading && (
+                    <div className="mb-2 px-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+                        {menu.heading}
+                    </div>
+                )}
+                <div
+                    className={
+                        isGrid ? 'grid grid-cols-2 gap-2' : 'space-y-1'
+                    }
+                >
+                    {menu.items.map((subItem) => (
+                        <DropdownMenuItem
+                            key={subItem.label}
+                            asChild
+                            className={cn(
+                                'cursor-pointer hover:bg-accent',
+                                isGrid ? 'p-2.5' : 'p-2',
+                            )}
+                        >
+                            <NavDropdownItemContent
+                                item={subItem}
+                                isGrid={isGrid}
+                            />
+                        </DropdownMenuItem>
+                    ))}
                 </div>
-                <div className="space-y-1">
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2 hover:bg-accent"
-                    >
-                        <a
-                            href="#solutions-enterprise"
-                            className="flex items-center gap-3"
-                        >
-                            <Building2 className="size-4 text-primary" />
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    Enterprise IT Modernization
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    Scale legacy architecture to cloud native
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2 hover:bg-accent"
-                    >
-                        <a
-                            href="#solutions-saas"
-                            className="flex items-center gap-3"
-                        >
-                            <Rocket className="size-4 text-primary" />
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    SaaS Acceleration
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    Rapid MVP to enterprise ready multi-tenant
-                                    apps
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2 hover:bg-accent"
-                    >
-                        <a
-                            href="#solutions-ecommerce"
-                            className="flex items-center gap-3"
-                        >
-                            <ShoppingCart className="size-4 text-primary" />
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    High-Scale Digital Commerce
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    Headless commerce & payment infrastructure
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem
-                        asChild
-                        className="cursor-pointer p-2 hover:bg-accent"
-                    >
-                        <a
-                            href="#solutions-migration"
-                            className="flex items-center gap-3"
-                        >
-                            <RefreshCw className="size-4 text-primary" />
-                            <div>
-                                <div className="text-sm font-semibold">
-                                    Digital Transformation
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                    End-to-end IT process automation
-                                </div>
-                            </div>
-                        </a>
-                    </DropdownMenuItem>
-                </div>
-            </DropdownMenuContent>
-        </DropdownMenu>
-    );
-}
-
-export function CompanyDropdown() {
-    return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-1 text-sm font-medium">
-                    Company
-                    <ChevronDown className="size-3.5 opacity-60" />
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-                align="start"
-                className="w-[360px] p-3 shadow-xl"
-            >
-                <DropdownMenuItem
-                    asChild
-                    className="cursor-pointer p-2 hover:bg-accent"
-                >
-                    <Link
-                        href={about.url()}
-                        className="flex items-center gap-3"
-                    >
-                        <Users className="size-4 text-primary" />
-                        <div>
-                            <div className="text-sm font-semibold">
-                                About PixelsFort
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                                Our story, team & global vision
-                            </div>
-                        </div>
-                    </Link>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem
-                    asChild
-                    className="cursor-pointer p-2 hover:bg-accent"
-                >
-                    <Link
-                        href={blog.url()}
-                        className="flex items-center gap-3"
-                    >
-                        <BookOpen className="size-4 text-primary" />
-                        <div>
-                            <div className="text-sm font-semibold">
-                                Blog & Engineering Insights
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                                Architecture, cloud & systems articles
-                            </div>
-                        </div>
-                    </Link>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem
-                    asChild
-                    className="cursor-pointer p-2 hover:bg-accent"
-                >
-                    <a href="#case-studies" className="flex items-center gap-3">
-                        <FileText className="size-4 text-primary" />
-                        <div>
-                            <div className="text-sm font-semibold">
-                                Case Studies
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                                See how we transformed client tech
-                            </div>
-                        </div>
-                    </a>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem
-                    asChild
-                    className="cursor-pointer p-2 hover:bg-accent"
-                >
-                    <a href="#tech-stack" className="flex items-center gap-3">
-                        <Layers className="size-4 text-primary" />
-                        <div>
-                            <div className="text-sm font-semibold">
-                                Engineering Culture
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                                Our tech stack & development standards
-                            </div>
-                        </div>
-                    </a>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem
-                    asChild
-                    className="cursor-pointer p-2 hover:bg-accent"
-                >
-                    <a href="#careers" className="flex items-center gap-3">
-                        <Briefcase className="size-4 text-primary" />
-                        <div className="flex-1">
-                            <div className="flex items-center justify-between">
-                                <span className="text-sm font-semibold">
-                                    Careers
-                                </span>
-                                <span className="bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
-                                    We're Hiring
-                                </span>
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                                Join our high-performing team
-                            </div>
-                        </div>
-                    </a>
-                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     );
@@ -399,21 +130,58 @@ export function CompanyDropdown() {
 export function DesktopNav() {
     return (
         <nav className="hidden items-center gap-1 md:flex lg:gap-2">
-            <ServicesDropdown />
-            <SolutionsDropdown />
-            <CompanyDropdown />
+            {headerNavItems.map((entry) => {
+                if (isDropdownMenu(entry)) {
+                    return (
+                        <NavDropdown
+                            key={entry.id || entry.label}
+                            menu={entry}
+                        />
+                    );
+                }
 
-            <Button variant="ghost" asChild className="text-sm font-medium">
-                <Link href={blog.url()}>Blog</Link>
-            </Button>
+                if (isDirectLink(entry)) {
+                    return (
+                        <Button
+                            key={entry.id || entry.label}
+                            variant="ghost"
+                            asChild
+                            className="text-sm font-medium"
+                        >
+                            <NavLink
+                                href={entry.href}
+                                external={entry.external}
+                            >
+                                {entry.label}
+                            </NavLink>
+                        </Button>
+                    );
+                }
 
-            <Button variant="ghost" asChild className="text-sm font-medium">
-                <a href="#pricing">Pricing</a>
-            </Button>
-
-            <Button variant="ghost" asChild className="text-sm font-medium">
-                <a href="#contact">Contact</a>
-            </Button>
+                return null;
+            })}
         </nav>
     );
+}
+
+// Backwards-compatible exports
+export function ServicesDropdown() {
+    const services = headerNavItems.find(
+        (item) => isDropdownMenu(item) && item.id === 'services',
+    ) as NavDropdownMenu | undefined;
+    return services ? <NavDropdown menu={services} /> : null;
+}
+
+export function SolutionsDropdown() {
+    const solutions = headerNavItems.find(
+        (item) => isDropdownMenu(item) && item.id === 'solutions',
+    ) as NavDropdownMenu | undefined;
+    return solutions ? <NavDropdown menu={solutions} /> : null;
+}
+
+export function CompanyDropdown() {
+    const company = headerNavItems.find(
+        (item) => isDropdownMenu(item) && item.id === 'company',
+    ) as NavDropdownMenu | undefined;
+    return company ? <NavDropdown menu={company} /> : null;
 }

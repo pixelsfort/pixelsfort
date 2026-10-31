@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { Sun, Moon, LayoutGrid, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { dashboard, login, register } from '@/routes';
+import { dashboard } from '@/routes';
 import type { Auth } from '@/types';
 
 interface HeaderActionsProps {
@@ -33,36 +33,28 @@ export function HeaderActions({
                 <span className="sr-only">Toggle theme</span>
             </Button>
 
-            {auth.user ? (
+            {auth.user && (
                 <Button
+                    variant="outline"
                     asChild
-                    className="bg-gradient-to-r from-primary to-indigo-600 text-primary-foreground shadow-sm hover:from-primary/90 hover:to-indigo-600/90"
+                    className="hidden text-sm font-medium sm:inline-flex"
                 >
                     <Link href={dashboard.url()}>
                         <LayoutGrid className="mr-2 size-4" />
                         Dashboard
                     </Link>
                 </Button>
-            ) : (
-                <>
-                    <Button
-                        variant="ghost"
-                        asChild
-                        className="hidden text-sm font-medium sm:inline-flex"
-                    >
-                        <Link href={login.url()}>Log in</Link>
-                    </Button>
-                    <Button
-                        asChild
-                        className="group relative overflow-hidden bg-gradient-to-r from-primary via-indigo-600 to-blue-600 text-white shadow-md transition-all hover:shadow-indigo-500/25"
-                    >
-                        <Link href={register.url()}>
-                            <span>Get Started</span>
-                            <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                    </Button>
-                </>
             )}
+
+            <Button
+                asChild
+                className="group relative overflow-hidden bg-gradient-to-r from-primary via-indigo-600 to-blue-600 text-white shadow-md transition-all hover:shadow-indigo-500/25"
+            >
+                <a href="#contact">
+                    <span>Contact Us</span>
+                    <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+                </a>
+            </Button>
         </div>
     );
 }

@@ -51,7 +51,10 @@ export function SiteFooter() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="relative w-full overflow-hidden border-t border-border/60 bg-gradient-to-b from-background via-muted/30 to-muted/60 pt-16 pb-12 transition-colors duration-300">
+        <footer
+            id="contact"
+            className="relative w-full overflow-hidden border-t border-border/60 bg-gradient-to-b from-background via-muted/30 to-muted/60 pt-16 pb-12 transition-colors duration-300"
+        >
             {/* Background Decorator Gradients */}
             <div className="pointer-events-none absolute top-0 left-1/4 size-96 -translate-y-1/2 bg-primary/10 blur-3xl" />
             <div className="pointer-events-none absolute right-1/4 bottom-0 size-96 translate-y-1/3 bg-indigo-500/10 blur-3xl" />
