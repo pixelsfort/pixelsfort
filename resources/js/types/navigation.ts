@@ -52,6 +52,7 @@ export interface NavDirectLink {
     iconColor?: string;
     external?: boolean;
     showOnMobile?: boolean;
+    featured?: boolean;
 }
 
 export type NavMenuItem = NavDropdownMenu | NavDirectLink;

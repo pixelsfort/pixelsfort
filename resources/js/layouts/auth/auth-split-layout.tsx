@@ -1,5 +1,4 @@
 import { Link, usePage } from '@inertiajs/react';
-import { PixelsfortLogo } from '@/components/pixelsfort-logo';
 import { home } from '@/routes';
 import type { AuthLayoutProps } from '@/types';
 
@@ -19,7 +18,7 @@ export default function AuthSplitLayout({
                     className="relative z-20 flex items-center text-lg font-medium transition-opacity hover:opacity-90"
                     aria-label="Pixelsfort Home"
                 >
-                    <PixelsfortLogo className="h-8 w-auto text-white" />
+                    <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-8 w-auto" />
                 </Link>
             </div>
             <div className="w-full lg:p-8">
@@ -29,7 +28,7 @@ export default function AuthSplitLayout({
                         className="relative z-20 flex items-center justify-center transition-opacity hover:opacity-90 lg:hidden"
                         aria-label="Pixelsfort Home"
                     >
-                        <PixelsfortLogo className="h-9 w-auto text-foreground" />
+                        <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-9 w-auto" />
                     </Link>
                     <div className="flex flex-col items-start gap-2 text-left sm:items-center sm:text-center">
                         <h1 className="text-xl font-medium">{title}</h1>

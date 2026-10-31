@@ -1,5 +1,12 @@
 [
   {
+    "id": "ai",
+    "label": "AI & Automation",
+    "type": "link",
+    "href": "/ai-and-automation",
+    "featured": true
+  },
+  {
     "id": "services",
     "label": "Services",
     "type": "dropdown",

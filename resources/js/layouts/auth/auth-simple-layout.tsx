@@ -1,5 +1,4 @@
 import { Link } from '@inertiajs/react';
-import { PixelsfortLogo } from '@/components/pixelsfort-logo';
 import { home } from '@/routes';
 import type { AuthLayoutProps } from '@/types';
 
@@ -18,7 +17,7 @@ export default function AuthSimpleLayout({
                             className="flex flex-col items-center gap-2 font-medium transition-opacity hover:opacity-90"
                             aria-label="Pixelsfort Home"
                         >
-                            <PixelsfortLogo className="h-9 w-auto text-foreground" />
+                            <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-9 w-auto" />
                             <span className="sr-only">{title}</span>
                         </Link>
 

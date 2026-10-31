@@ -14,6 +14,7 @@ import {
     Lock,
     Mail,
     MapPin,
+    Moon,
     Phone,
     Rocket,
     Search,
@@ -22,17 +23,23 @@ import {
     ShieldCheck,
     Smartphone,
     Sparkles,
+    Sun,
     Twitter,
 } from 'lucide-react';
 import { useState } from 'react';
-import { PixelsfortLogo } from '@/components/pixelsfort-logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useAppearance } from '@/hooks/use-appearance';
 import { about, blog, home, login } from '@/routes';
 
 export function SiteFooter() {
     const [email, setEmail] = useState('');
     const [subscribed, setSubscribed] = useState(false);
+    const { resolvedAppearance, updateAppearance } = useAppearance();
+
+    const toggleTheme = () => {
+        updateAppearance(resolvedAppearance === 'dark' ? 'light' : 'dark');
+    };
 
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
@@ -134,10 +141,7 @@ export function SiteFooter() {
                             className="group inline-flex flex-col items-start gap-1.5 transition-opacity hover:opacity-90"
                             aria-label="Pixelsfort Home"
                         >
-                            <PixelsfortLogo className="h-8 w-auto text-foreground transition-transform duration-300 group-hover:scale-[1.02]" />
-                            <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
-                                Tech Pvt. Ltd.
-                            </span>
+                            <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-8 w-auto transition-transform duration-300 group-hover:scale-[1.02]" />
                         </Link>
 
                         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -470,6 +474,20 @@ export function SiteFooter() {
                         >
                             Sitemap
                         </a>
+
+                        {/* Theme toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            aria-label={`Switch to ${resolvedAppearance === 'dark' ? 'light' : 'dark'} mode`}
+                            className="flex items-center gap-1.5 border border-border/60 bg-background px-3 py-1.5 text-xs font-medium shadow-xs transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
+                        >
+                            {resolvedAppearance === 'dark' ? (
+                                <Sun className="size-3.5" />
+                            ) : (
+                                <Moon className="size-3.5" />
+                            )}
+                            <span>{resolvedAppearance === 'dark' ? 'Light' : 'Dark'}</span>
+                        </button>
 
                         {/* Back to top button */}
                         <button

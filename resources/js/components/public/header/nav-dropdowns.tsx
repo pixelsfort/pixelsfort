@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -83,7 +83,7 @@ export function NavDropdown({ menu }: { menu: NavDropdownMenu }) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-1 text-sm font-medium">
+                <Button variant="ghost" className="gap-1 text-sm font-medium cursor-pointer">
                     {menu.label}
                     <ChevronDown className="size-3.5 opacity-60" />
                 </Button>
@@ -141,12 +141,34 @@ export function DesktopNav() {
                 }
 
                 if (isDirectLink(entry)) {
+                    if (entry.featured) {
+                        return (
+                            <Button
+                                key={entry.id || entry.label}
+                                variant="ghost"
+                                asChild
+                                className="group/featured relative gap-1.5 text-sm font-semibold text-primary"
+                            >
+                                <NavLink
+                                    href={entry.href}
+                                    external={entry.external}
+                                    className='!gap-[2px]'
+                                >
+                                    <sup><img src="/ai-icon.svg" alt="AI" className='w-6 h-6' /></sup>
+                                    <span className="bg-gradient-to-r from-indigo-400 via-primary to-indigo-400 bg-clip-text text-transparent">
+                                        {entry.label}
+                                    </span>
+                                </NavLink>
+                            </Button>
+                        );
+                    }
+
                     return (
                         <Button
                             key={entry.id || entry.label}
                             variant="ghost"
                             asChild
-                            className="text-sm font-medium"
+                            className="text-sm font-medium cursor-pointer"
                         >
                             <NavLink
                                 href={entry.href}

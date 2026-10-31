@@ -1,6 +1,5 @@
 import { Link } from '@inertiajs/react';
 import type { PropsWithChildren } from 'react';
-import { PixelsfortLogo } from '@/components/pixelsfort-logo';
 import {
     Card,
     CardContent,
@@ -27,7 +26,7 @@ export default function AuthCardLayout({
                     className="flex items-center gap-2 self-center font-medium transition-opacity hover:opacity-90"
                     aria-label="Pixelsfort Home"
                 >
-                    <PixelsfortLogo className="h-9 w-auto text-foreground" />
+                    <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-9 w-auto" />
                 </Link>
 
                 <div className="flex flex-col gap-6">
