@@ -142,7 +142,7 @@ export function SiteHeader() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.22, ease: 'easeOut' }}
-                        className="fixed inset-0 top-16 z-40 bg-black/50 backdrop-blur-[2px] cursor-pointer"
+                        className="fixed inset-0 top-16 z-40 bg-black/80 backdrop-blur-[2px] cursor-pointer"
                         onClick={closeMenu}
                         aria-hidden="true"
                     />
