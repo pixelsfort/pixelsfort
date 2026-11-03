@@ -66,7 +66,7 @@ export function SiteFooter() {
             <div className="pointer-events-none absolute top-0 left-1/4 size-96 -translate-y-1/2 bg-primary/10 blur-3xl" />
             <div className="pointer-events-none absolute right-1/4 bottom-0 size-96 translate-y-1/3 bg-indigo-500/10 blur-3xl" />
 
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
                 {/* 1. Top Tech Consultation & Newsletter Dispatch Card */}
                 <div className="relative mb-16 overflow-hidden border border-primary/20 bg-card/80 p-6 shadow-xl backdrop-blur-xl sm:p-10">
                     <div className="pointer-events-none absolute -top-24 -right-24 size-72 bg-gradient-to-br from-primary/20 to-indigo-500/20 blur-2xl" />
@@ -141,7 +141,16 @@ export function SiteFooter() {
                             className="group inline-flex flex-col items-start gap-1.5 transition-opacity hover:opacity-90"
                             aria-label="Pixelsfort Home"
                         >
-                            <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-8 w-auto transition-transform duration-300 group-hover:scale-[1.02]" />
+                            <img
+                                src="/pixelsfort-logo.svg"
+                                alt="Pixelsfort Logo"
+                                className="h-8 w-auto transition-transform duration-300 group-hover:scale-[1.02] dark:hidden"
+                            />
+                            <img
+                                src="/pixelsfort-logo-light.svg"
+                                alt="Pixelsfort Logo"
+                                className="hidden h-8 w-auto transition-transform duration-300 group-hover:scale-[1.02] dark:block"
+                            />
                         </Link>
 
                         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -486,7 +495,11 @@ export function SiteFooter() {
                             ) : (
                                 <Moon className="size-3.5" />
                             )}
-                            <span>{resolvedAppearance === 'dark' ? 'Light' : 'Dark'}</span>
+                            <span>
+                                {resolvedAppearance === 'dark'
+                                    ? 'Light'
+                                    : 'Dark'}
+                            </span>
                         </button>
 
                         {/* Back to top button */}

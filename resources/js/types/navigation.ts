@@ -41,6 +41,7 @@ export interface NavDropdownMenu {
     dropdownWidth?: string;
     items: NavSubItem[];
     showOnMobile?: boolean;
+    featured?: boolean;
 }
 
 export interface NavDirectLink {

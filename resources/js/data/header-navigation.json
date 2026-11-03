@@ -2,9 +2,54 @@
   {
     "id": "ai",
     "label": "AI & Automation",
-    "type": "link",
-    "href": "/ai-and-automation",
-    "featured": true
+    "type": "dropdown",
+    "heading": "Next-Gen AI & Intelligent Automation",
+    "layout": "grid",
+    "columns": 2,
+    "dropdownWidth": "w-[540px]",
+    "featured": true,
+    "items": [
+      {
+        "label": "Core AI Development",
+        "description": "Custom LLMs, neural networks & algorithms",
+        "href": "#ai-core-development",
+        "icon": "Cpu",
+        "iconBg": "bg-purple-500/10",
+        "iconColor": "text-purple-600 dark:text-purple-400"
+      },
+      {
+        "label": "AI Agents & Automation",
+        "description": "Autonomous agents & intelligent workflows",
+        "href": "#ai-agents-automation",
+        "icon": "Workflow",
+        "iconBg": "bg-indigo-500/10",
+        "iconColor": "text-indigo-600 dark:text-indigo-400"
+      },
+      {
+        "label": "Data & Models",
+        "description": "Pipelines, fine-tuning & RAG architectures",
+        "href": "#ai-data-models",
+        "icon": "Database",
+        "iconBg": "bg-blue-500/10",
+        "iconColor": "text-blue-600 dark:text-blue-400"
+      },
+      {
+        "label": "Consulting & Strategy",
+        "description": "AI readiness audits & technical roadmaps",
+        "href": "#ai-consulting-strategy",
+        "icon": "TrendingUp",
+        "iconBg": "bg-emerald-500/10",
+        "iconColor": "text-emerald-600 dark:text-emerald-400"
+      },
+      {
+        "label": "AI in Industries",
+        "description": "Tailored AI solutions for enterprise sectors",
+        "href": "#ai-industries",
+        "icon": "Building2",
+        "iconBg": "bg-amber-500/10",
+        "iconColor": "text-amber-600 dark:text-amber-400"
+      }
+    ]
   },
   {
     "id": "services",

@@ -167,9 +167,21 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
                                 className="space-y-3"
                             >
                                 <div className="flex items-center justify-between border-b border-border/30 pb-2">
-                                    <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-                                        {menu.label}
-                                    </span>
+                                    <div className="flex items-center gap-1.5">
+                                        {menu.featured && (
+                                            <Sparkles className="size-3.5 text-indigo-400" />
+                                        )}
+                                        <span
+                                            className={cn(
+                                                'text-xs font-semibold tracking-wider uppercase',
+                                                menu.featured
+                                                    ? 'bg-gradient-to-r from-indigo-400 via-primary to-indigo-400 bg-clip-text text-transparent'
+                                                    : 'text-muted-foreground',
+                                            )}
+                                        >
+                                            {menu.label}
+                                        </span>
+                                    </div>
                                     {menu.heading && (
                                         <span className="hidden text-[11px] text-muted-foreground/60 sm:inline">
                                             {menu.heading}

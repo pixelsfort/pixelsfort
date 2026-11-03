@@ -128,40 +128,6 @@ export const PixelTrailBackground = forwardRef<
         [triggerPixel, blockSize],
     );
 
-    // Subtle random idle twinkling so background feels alive
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (pixelRefs.current.size === 0) {
-                return;
-            }
-
-            const keys = Array.from(pixelRefs.current.keys());
-
-            if (keys.length === 0) {
-                return;
-            }
-
-            const randomKey = keys[Math.floor(Math.random() * keys.length)];
-            const node = pixelRefs.current.get(randomKey);
-
-            if (node) {
-                animate(
-                    node,
-                    {
-                        opacity: [0, 0.45, 0],
-                        scale: [1, 1.05, 1],
-                    },
-                    {
-                        duration: 1.4,
-                        ease: 'easeInOut',
-                    },
-                );
-            }
-        }, 2200);
-
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <div
             ref={containerRef}
@@ -233,7 +199,7 @@ export interface HeroHeadingProps {
 export function HeroHeading({ companyName = 'PixelsFort' }: HeroHeadingProps) {
     return (
         <div className="mx-auto max-w-4xl space-y-6 text-center">
-            <h1 className="font-funnel text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl lg:leading-[1.06]">
+            <h1 className="font-funnel text-5xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl lg:leading-[1.06]">
                 Engineering Digital Products with{' '}
                 <span className="bg-gradient-to-r from-primary via-indigo-500 to-secondary bg-clip-text text-transparent dark:from-primary dark:via-sky-400 dark:to-teal-300">
                     Pixel Perfection
