@@ -19,6 +19,13 @@ export interface NavItemBadge {
     className?: string;
 }
 
+export interface NavChildItem {
+    label: string;
+    href: string;
+    external?: boolean;
+    badge?: string;
+}
+
 export interface NavSubItem {
     label: string;
     description?: string;
@@ -29,6 +36,8 @@ export interface NavSubItem {
     badge?: string | NavItemBadge;
     external?: boolean;
     showOnMobile?: boolean;
+    note?: string;
+    children?: NavChildItem[];
 }
 
 export interface NavDropdownMenu {

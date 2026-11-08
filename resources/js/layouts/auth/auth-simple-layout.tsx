@@ -8,7 +8,8 @@ export default function AuthSimpleLayout({
     description,
 }: AuthLayoutProps) {
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
+        // bg-background bg-radial-[at_top] from-primary/15 via-transparent to-transparent
+        <div className="flex min-h-svh flex-col items-center justify-center gap-6  p-6 md:p-10">
             <div className="w-full max-w-sm">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col items-center gap-4">
@@ -17,7 +18,11 @@ export default function AuthSimpleLayout({
                             className="flex flex-col items-center gap-2 font-medium transition-opacity hover:opacity-90"
                             aria-label="Pixelsfort Home"
                         >
-                            <img src="/pixelsfort-logo.svg" alt="Pixelsfort Logo" className="h-9 w-auto" />
+                            <img
+                                src="/pixelsfort-logo.svg"
+                                alt="Pixelsfort Logo"
+                                className="h-9 w-auto"
+                            />
                             <span className="sr-only">{title}</span>
                         </Link>
 

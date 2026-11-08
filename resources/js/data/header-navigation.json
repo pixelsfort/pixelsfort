@@ -13,41 +13,81 @@
         "label": "Core AI Development",
         "description": "Custom LLMs, neural networks & algorithms",
         "href": "#ai-core-development",
-        "icon": "Cpu",
-        "iconBg": "bg-purple-500/10",
-        "iconColor": "text-purple-600 dark:text-purple-400"
+        "note": "Got a build in mind? We take it from strategy to production.",
+        "children": [
+          { "label": "AI Development", "href": "#ai-development" },
+          { "label": "Machine Learning Development", "href": "#ml-development" },
+          { "label": "Generative AI Development", "href": "#gen-ai-development" },
+          { "label": "AI App Development", "href": "#ai-app-development" },
+          { "label": "AI Product Engineering", "href": "#ai-product-engineering" },
+          { "label": "AI PoC & MVP Development", "href": "#ai-poc-mvp" },
+          { "label": "AI Modernization", "href": "#ai-modernization" },
+          { "label": "Deep Learning Development", "href": "#deep-learning" }
+        ]
       },
       {
         "label": "AI Agents & Automation",
         "description": "Autonomous agents & intelligent workflows",
         "href": "#ai-agents-automation",
-        "icon": "Workflow",
-        "iconBg": "bg-indigo-500/10",
-        "iconColor": "text-indigo-600 dark:text-indigo-400"
+        "note": "Automate complex enterprise workflows with autonomous agent squads.",
+        "children": [
+          { "label": "Autonomous Agent Systems", "href": "#autonomous-agents" },
+          { "label": "Multi-Agent Orchestration", "href": "#multi-agent" },
+          { "label": "Workflow Automation & RPA", "href": "#workflow-automation" },
+          { "label": "AI Assistants & Chatbots", "href": "#ai-assistants" },
+          { "label": "Intelligent Document Processing", "href": "#document-processing" },
+          { "label": "Custom Copilot Development", "href": "#custom-copilots" },
+          { "label": "Task Execution Bots", "href": "#task-execution" },
+          { "label": "Voice & Conversational AI", "href": "#voice-ai" }
+        ]
       },
       {
         "label": "Data & Models",
         "description": "Pipelines, fine-tuning & RAG architectures",
         "href": "#ai-data-models",
-        "icon": "Database",
-        "iconBg": "bg-blue-500/10",
-        "iconColor": "text-blue-600 dark:text-blue-400"
+        "note": "Transform proprietary enterprise data into resilient intelligence.",
+        "children": [
+          { "label": "Custom LLM Fine-Tuning", "href": "#llm-fine-tuning" },
+          { "label": "Vector Databases & RAG", "href": "#vector-rag" },
+          { "label": "Data Pipeline Engineering", "href": "#data-pipelines" },
+          { "label": "Model Evaluation & Alignment", "href": "#model-eval" },
+          { "label": "Enterprise Knowledge Graphs", "href": "#knowledge-graphs" },
+          { "label": "Edge AI & Local Inference", "href": "#edge-ai" },
+          { "label": "Data Cleaning & Synthesis", "href": "#data-synthesis" },
+          { "label": "Model Quantization & Speed", "href": "#quantization" }
+        ]
       },
       {
         "label": "Consulting & Strategy",
         "description": "AI readiness audits & technical roadmaps",
         "href": "#ai-consulting-strategy",
-        "icon": "TrendingUp",
-        "iconBg": "bg-emerald-500/10",
-        "iconColor": "text-emerald-600 dark:text-emerald-400"
+        "note": "De-risk technical investments with senior enterprise AI architects.",
+        "children": [
+          { "label": "AI Readiness Audit", "href": "#ai-readiness" },
+          { "label": "AI Architecture Strategy", "href": "#ai-strategy" },
+          { "label": "Cost & Latency Optimization", "href": "#cost-latency" },
+          { "label": "Security, Privacy & Ethics", "href": "#security-ethics" },
+          { "label": "Technology Stack Advisory", "href": "#tech-advisory" },
+          { "label": "ROI & Feasibility Analysis", "href": "#roi-analysis" },
+          { "label": "Enterprise AI Roadmapping", "href": "#ai-roadmapping" },
+          { "label": "Team Enablement & Training", "href": "#team-enablement" }
+        ]
       },
       {
         "label": "AI in Industries",
         "description": "Tailored AI solutions for enterprise sectors",
         "href": "#ai-industries",
-        "icon": "Building2",
-        "iconBg": "bg-amber-500/10",
-        "iconColor": "text-amber-600 dark:text-amber-400"
+        "note": "Domain-specific AI applications tailored for high-compliance verticals.",
+        "children": [
+          { "label": "Healthcare & MedTech AI", "href": "#healthcare-ai" },
+          { "label": "FinTech & Fraud Detection", "href": "#fintech-ai" },
+          { "label": "E-Commerce & Retail AI", "href": "#retail-ai" },
+          { "label": "Logistics & Supply Chain", "href": "#logistics-ai" },
+          { "label": "Legal & Contract Intelligence", "href": "#legal-ai" },
+          { "label": "Manufacturing & IoT Vision", "href": "#iot-vision" },
+          { "label": "Insurance Risk Intelligence", "href": "#insurance-ai" },
+          { "label": "Real Estate & PropTech AI", "href": "#proptech-ai" }
+        ]
       }
     ]
   },
@@ -64,49 +104,97 @@
         "label": "Custom Software",
         "description": "Web apps & API systems",
         "href": "#services-software",
-        "icon": "Code2",
-        "iconBg": "bg-primary/10",
-        "iconColor": "text-primary"
+        "note": "Engineered for fault-tolerance, high concurrency, and elastic growth.",
+        "children": [
+          { "label": "Web Application Development", "href": "#web-development" },
+          { "label": "Microservices & REST APIs", "href": "#microservices" },
+          { "label": "Distributed Backend Systems", "href": "#backend-systems" },
+          { "label": "System Integration & Migration", "href": "#system-integration" },
+          { "label": "High-Volume Transaction Engines", "href": "#transaction-engines" },
+          { "label": "Real-Time WebSockets & Streaming", "href": "#websockets" },
+          { "label": "Database Architecture & Optimization", "href": "#database-architecture" },
+          { "label": "Enterprise ERP & SaaS Platforms", "href": "#saas-platforms" }
+        ]
       },
       {
         "label": "Mobile Apps",
         "description": "iOS & Android solutions",
         "href": "#services-mobile",
-        "icon": "Smartphone",
-        "iconBg": "bg-blue-500/10",
-        "iconColor": "text-blue-600 dark:text-blue-400"
+        "note": "Native fluidity, sub-second responses, and offline-first capabilities.",
+        "children": [
+          { "label": "iOS Native Development", "href": "#ios-apps" },
+          { "label": "Android Native Development", "href": "#android-apps" },
+          { "label": "Cross-Platform Flutter Apps", "href": "#flutter-apps" },
+          { "label": "React Native Mobile Apps", "href": "#react-native" },
+          { "label": "Mobile UI/UX & Prototyping", "href": "#mobile-ux" },
+          { "label": "Offline-First Synchronization", "href": "#offline-sync" },
+          { "label": "App Store Deployment & CI/CD", "href": "#mobile-cicd" },
+          { "label": "In-App Purchases & Subscriptions", "href": "#in-app-payments" }
+        ]
       },
       {
         "label": "Cloud & DevOps",
         "description": "AWS, Azure & CI/CD",
         "href": "#services-cloud",
-        "icon": "Cloud",
-        "iconBg": "bg-indigo-500/10",
-        "iconColor": "text-indigo-600 dark:text-indigo-400"
+        "note": "99.99% uptime with automated infrastructure and fast deployment loops.",
+        "children": [
+          { "label": "AWS & Azure Cloud Architecture", "href": "#cloud-architecture" },
+          { "label": "Kubernetes & Container Ops", "href": "#k8s-devops" },
+          { "label": "CI/CD Pipeline Automation", "href": "#cicd-automation" },
+          { "label": "Infrastructure as Code (Terraform)", "href": "#iac-terraform" },
+          { "label": "24/7 SRE & Observability", "href": "#sre-observability" },
+          { "label": "Cloud Cost Optimization (FinOps)", "href": "#finops" },
+          { "label": "Disaster Recovery & Redundancy", "href": "#disaster-recovery" },
+          { "label": "Serverless & Edge Computing", "href": "#serverless" }
+        ]
       },
       {
         "label": "AI & Automation",
         "description": "LLMs & Machine learning",
         "href": "#services-ai",
-        "icon": "Cpu",
-        "iconBg": "bg-purple-500/10",
-        "iconColor": "text-purple-600 dark:text-purple-400"
+        "note": "Infuse intelligence into your core operational workflows.",
+        "children": [
+          { "label": "Intelligent Process Automation", "href": "#process-automation" },
+          { "label": "Predictive Analytics Engines", "href": "#predictive-analytics" },
+          { "label": "Enterprise LLM Integrations", "href": "#llm-integrations" },
+          { "label": "Workflow Automation Bots", "href": "#workflow-bots" },
+          { "label": "Computer Vision Systems", "href": "#computer-vision" },
+          { "label": "Document Parsing & NLP", "href": "#nlp-parsing" },
+          { "label": "Autonomous Data Pipelines", "href": "#auto-pipelines" },
+          { "label": "Cognitive Decision Support", "href": "#decision-support" }
+        ]
       },
       {
         "label": "Cybersecurity",
         "description": "Security audits & defense",
         "href": "#services-security",
-        "icon": "ShieldCheck",
-        "iconBg": "bg-emerald-500/10",
-        "iconColor": "text-emerald-600 dark:text-emerald-400"
+        "note": "Protect sensitive corporate assets with zero-trust architecture.",
+        "children": [
+          { "label": "Security Architecture Audits", "href": "#security-audits" },
+          { "label": "Penetration Testing & Pentests", "href": "#penetration-testing" },
+          { "label": "SOC2 & ISO 27001 Readiness", "href": "#compliance-readiness" },
+          { "label": "Identity & Access Management", "href": "#iam-security" },
+          { "label": "Zero-Trust Network Strategy", "href": "#zero-trust" },
+          { "label": "Vulnerability Remediation", "href": "#vulnerability-mgmt" },
+          { "label": "Cloud Security Posture (CSPM)", "href": "#cloud-security" },
+          { "label": "Incident Response Planning", "href": "#incident-response" }
+        ]
       },
       {
         "label": "UI/UX Design",
         "description": "Design systems & interfaces",
         "href": "#services-design",
-        "icon": "Palette",
-        "iconBg": "bg-rose-500/10",
-        "iconColor": "text-rose-600 dark:text-rose-400"
+        "note": "Design systems that deliver unmatched brand credibility and user delight.",
+        "children": [
+          { "label": "Design Systems & Component Kits", "href": "#design-systems" },
+          { "label": "High-Fidelity Wireframes", "href": "#wireframes" },
+          { "label": "User Journey & Usability Research", "href": "#ux-research" },
+          { "label": "Figma Prototypes & Micro-Interactions", "href": "#prototyping" },
+          { "label": "Accessibility (WCAG 2.1 AA)", "href": "#accessibility" },
+          { "label": "Design-to-Code Handoff", "href": "#design-handoff" },
+          { "label": "Responsive Web & Mobile UI", "href": "#responsive-ui" },
+          { "label": "Brand Identity & Visual Style", "href": "#brand-identity" }
+        ]
       }
     ]
   },
@@ -123,29 +211,57 @@
         "label": "Enterprise IT Modernization",
         "description": "Scale legacy architecture to cloud native",
         "href": "#solutions-enterprise",
-        "icon": "Building2",
-        "iconColor": "text-primary"
+        "note": "Modernize mission-critical systems without operational downtime.",
+        "children": [
+          { "label": "Legacy Core Re-platforming", "href": "#legacy-replatforming" },
+          { "label": "Monolith to Microservices", "href": "#microservices-migration" },
+          { "label": "Database Modernization", "href": "#database-modernization" },
+          { "label": "Cloud-Native Migration Strategy", "href": "#cloud-migration" },
+          { "label": "Mainframe Data Offloading", "href": "#mainframe-offloading" },
+          { "label": "API Gateway Consolidation", "href": "#api-consolidation" }
+        ]
       },
       {
         "label": "SaaS Acceleration",
         "description": "Rapid MVP to enterprise ready multi-tenant apps",
         "href": "#solutions-saas",
-        "icon": "Rocket",
-        "iconColor": "text-primary"
+        "note": "Accelerate time-to-market from concept to scalable multi-tenant SaaS.",
+        "children": [
+          { "label": "Multi-Tenant Architecture", "href": "#multi-tenant-saas" },
+          { "label": "Billing & Subscription Engines", "href": "#saas-billing" },
+          { "label": "Scalable API Frameworks", "href": "#saas-apis" },
+          { "label": "Enterprise SSO & RBAC", "href": "#enterprise-sso" },
+          { "label": "Product Analytics Dashboards", "href": "#product-analytics" },
+          { "label": "Automated Tenant Provisioning", "href": "#tenant-provisioning" }
+        ]
       },
       {
         "label": "High-Scale Digital Commerce",
         "description": "Headless commerce & payment infrastructure",
         "href": "#solutions-ecommerce",
-        "icon": "ShoppingCart",
-        "iconColor": "text-primary"
+        "note": "Deliver sub-second shopping experiences that convert and retain.",
+        "children": [
+          { "label": "Headless Commerce Engines", "href": "#headless-commerce" },
+          { "label": "Payment Orchestration", "href": "#payment-orchestration" },
+          { "label": "Real-Time Inventory Sync", "href": "#inventory-sync" },
+          { "label": "Omnichannel Checkout Flow", "href": "#omnichannel-checkout" },
+          { "label": "High-Throughput Flash Scale", "href": "#flash-scale" },
+          { "label": "Global Multi-Currency Engine", "href": "#multi-currency" }
+        ]
       },
       {
         "label": "Digital Transformation",
         "description": "End-to-end IT process automation",
         "href": "#solutions-migration",
-        "icon": "RefreshCw",
-        "iconColor": "text-primary"
+        "note": "Unify business silos into automated, high-velocity engines.",
+        "children": [
+          { "label": "End-to-End Workflow Digitalization", "href": "#workflow-digitalization" },
+          { "label": "Paperless Business Workflows", "href": "#paperless-operations" },
+          { "label": "Legacy System API Bridges", "href": "#legacy-api-bridges" },
+          { "label": "Cross-Department Data Unification", "href": "#data-unification" },
+          { "label": "Self-Service Employee Portals", "href": "#employee-portals" },
+          { "label": "Real-Time Executive Dashboards", "href": "#executive-dashboards" }
+        ]
       }
     ]
   },
@@ -161,37 +277,62 @@
         "label": "About PixelsFort",
         "description": "Our story, team & global vision",
         "href": "/about",
-        "icon": "Users",
-        "iconColor": "text-primary"
+        "note": "A premier engineering & AI lab building mission-critical software.",
+        "children": [
+          { "label": "Our Story & Mission", "href": "/about" },
+          { "label": "Senior Engineering Squads", "href": "/about#team" },
+          { "label": "Global Client Footprint", "href": "/about#clients" },
+          { "label": "Core Engineering DNA", "href": "/about#values" }
+        ]
       },
       {
         "label": "Blog & Engineering Insights",
         "description": "Architecture, cloud & systems articles",
         "href": "/blog",
-        "icon": "BookOpen",
-        "iconColor": "text-primary"
+        "note": "In-depth engineering write-ups from our principal architects.",
+        "children": [
+          { "label": "Cloud Architecture Guides", "href": "/blog" },
+          { "label": "Generative AI & LLM Systems", "href": "/blog" },
+          { "label": "Distributed Systems Patterns", "href": "/blog" },
+          { "label": "DevOps & SRE Benchmarks", "href": "/blog" }
+        ]
       },
       {
         "label": "Case Studies",
         "description": "See how we transformed client tech",
         "href": "#case-studies",
-        "icon": "FileText",
-        "iconColor": "text-primary"
+        "note": "Real-world engineering transformations with measurable impact.",
+        "children": [
+          { "label": "Enterprise Cloud Modernization", "href": "#case-studies" },
+          { "label": "High-Frequency Trading Platform", "href": "#case-studies" },
+          { "label": "Global Logistics Telemetry Engine", "href": "#case-studies" },
+          { "label": "Healthcare Data Pipeline (HIPAA)", "href": "#case-studies" }
+        ]
       },
       {
         "label": "Engineering Culture",
         "description": "Our tech stack & development standards",
         "href": "#tech-stack",
-        "icon": "Layers",
-        "iconColor": "text-primary"
+        "note": "Craftsmanship, testing discipline, and high-ownership collaboration.",
+        "children": [
+          { "label": "Our Technology Stack", "href": "#tech-stack" },
+          { "label": "Code Review & Testing Standards", "href": "#tech-stack" },
+          { "label": "Continuous Delivery Pipeline", "href": "#tech-stack" },
+          { "label": "Open Source Contributions", "href": "#tech-stack" }
+        ]
       },
       {
         "label": "Careers",
         "description": "Join our high-performing team",
         "href": "#careers",
-        "icon": "Briefcase",
-        "iconColor": "text-primary",
-        "badge": "We're Hiring"
+        "badge": "We're Hiring",
+        "note": "Work on hard distributed computing and AI problems from anywhere in the world.",
+        "children": [
+          { "label": "Senior Full-Stack Engineer", "href": "#careers" },
+          { "label": "AI / ML Systems Architect", "href": "#careers" },
+          { "label": "Senior DevOps / Cloud Engineer", "href": "#careers" },
+          { "label": "Staff Product Designer", "href": "#careers" }
+        ]
       }
     ]
   },
@@ -199,8 +340,6 @@
     "id": "blog",
     "label": "Insights",
     "type": "link",
-    "href": "/blog",
-    "icon": "BookOpen"
+    "href": "/blog"
   }
 ]
-

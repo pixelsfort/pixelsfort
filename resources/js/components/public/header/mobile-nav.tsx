@@ -1,5 +1,12 @@
 import { Link, router } from '@inertiajs/react';
-import { ArrowRight, ChevronRight, LayoutGrid, Sparkles } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+    ArrowRight,
+    ChevronDown,
+    ChevronRight,
+    LayoutGrid,
+    Sparkles,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from '@/components/ui/button';
@@ -11,12 +18,19 @@ import type {
     NavDirectLink,
     NavDropdownMenu,
     NavMenuItem,
+    NavSubItem,
 } from '@/types/navigation';
 import { isDirectLink, isDropdownMenu } from '@/types/navigation';
-import { NavIcon } from './nav-icon';
 import { NavLink } from './nav-link';
 
 const headerNavItems = headerNavData as NavMenuItem[];
+
+const showcaseActionLabels: Record<string, { label: string; href: string }> = {
+    ai: { label: 'Talk to our AI Experts', href: '/#contact' },
+    services: { label: 'Talk to our Architects', href: '/#contact' },
+    solutions: { label: 'Explore Case Studies', href: '/#case-studies' },
+    company: { label: 'View Open Positions', href: '/#careers' },
+};
 
 interface MobileNavProps {
     auth: Auth;
@@ -105,18 +119,26 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
         });
     }, [setMobileOpen]);
 
-    const dropdownMenus = headerNavItems.filter(
-        (item): item is NavDropdownMenu =>
-            isDropdownMenu(item) && item.showOnMobile !== false,
-    );
+    // Collapsible navigation state: all main items closed by default
+    const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+    const [openCategoryKey, setOpenCategoryKey] = useState<string | null>(null);
 
-    const directLinks = headerNavItems.filter(
-        (item): item is NavDirectLink =>
-            isDirectLink(item) && item.showOnMobile !== false,
-    );
+    // Reset all collapsed states whenever mobile drawer opens or closes
+    useEffect(() => {
+        if (!mobileOpen) {
+            setOpenMenuId(null);
+            setOpenCategoryKey(null);
+        }
+    }, [mobileOpen]);
 
-    const featuredDirectLinks = directLinks.filter((link) => link.featured);
-    const standardDirectLinks = directLinks.filter((link) => !link.featured);
+    const handleToggleMenu = (menuId: string) => {
+        setOpenMenuId((prev) => (prev === menuId ? null : menuId));
+        setOpenCategoryKey(null);
+    };
+
+    const handleToggleCategory = (catKey: string) => {
+        setOpenCategoryKey((prev) => (prev === catKey ? null : catKey));
+    };
 
     const drawerContent = (
         <div
@@ -132,147 +154,308 @@ export function MobileNav({ auth, mobileOpen, setMobileOpen }: MobileNavProps) {
             )}
         >
             <div className="flex-1 overflow-y-auto">
-                <div className="mx-auto flex max-w-2xl flex-col gap-6 px-4 py-6 sm:px-6">
-                    {/* Featured Link (AI & Automation) */}
-                    {featuredDirectLinks.map((link) => (
-                        <NavLink
-                            key={link.id || link.label}
-                            href={link.href}
-                            external={link.external}
-                            onClick={() => setMobileOpen(false)}
-                            className="group flex items-center justify-between rounded-xl border border-indigo-500/30 p-3.5 transition-all duration-300 hover:border-indigo-500/60"
-                        >
-                            <div className="flex items-center gap-2.5">
-                                <Sparkles className="size-4 animate-pulse text-indigo-400" />
-                                <span className="bg-gradient-to-r from-indigo-400 via-primary to-indigo-400 bg-clip-text text-sm font-semibold text-transparent">
-                                    {link.label}
-                                </span>
-                            </div>
-                            <ChevronRight className="size-4 text-indigo-400 transition-transform duration-200 group-hover:translate-x-1" />
-                        </NavLink>
-                    ))}
-
-                    {/* Categorized Dropdown Sections */}
-                    {dropdownMenus.map((menu) => {
-                        const items = menu.items.filter(
-                            (subItem) => subItem.showOnMobile !== false,
-                        );
-                        if (items.length === 0) {
+                <div className="mx-auto flex max-w-2xl flex-col gap-2.5 px-4 py-5 sm:px-6">
+                    {headerNavItems.map((item) => {
+                        if (item.showOnMobile === false) {
                             return null;
                         }
 
-                        return (
-                            <div
-                                key={menu.id || menu.label}
-                                className="space-y-3"
-                            >
-                                <div className="flex items-center justify-between border-b border-border/30 pb-2">
-                                    <div className="flex items-center gap-1.5">
-                                        {menu.featured && (
-                                            <Sparkles className="size-3.5 text-indigo-400" />
-                                        )}
-                                        <span
-                                            className={cn(
-                                                'text-xs font-semibold tracking-wider uppercase',
-                                                menu.featured
-                                                    ? 'bg-gradient-to-r from-indigo-400 via-primary to-indigo-400 bg-clip-text text-transparent'
-                                                    : 'text-muted-foreground',
-                                            )}
-                                        >
-                                            {menu.label}
-                                        </span>
-                                    </div>
-                                    {menu.heading && (
-                                        <span className="hidden text-[11px] text-muted-foreground/60 sm:inline">
-                                            {menu.heading}
-                                        </span>
+                        if (isDropdownMenu(item)) {
+                            const isOpen = openMenuId === item.id;
+                            const items = item.items.filter(
+                                (subItem) => subItem.showOnMobile !== false,
+                            );
+
+                            if (items.length === 0) {
+                                return null;
+                            }
+
+                            return (
+                                <div
+                                    key={item.id || item.label}
+                                    className={cn(
+                                        'overflow-hidden rounded-xl border transition-all duration-200',
+                                        isOpen
+                                            ? 'border-primary/50 bg-card shadow-sm dark:bg-zinc-900/80'
+                                            : 'border-border/60 bg-card/60 hover:border-border hover:bg-card/90 dark:bg-zinc-900/40',
+                                        item.featured &&
+                                            (isOpen
+                                                ? 'border-indigo-500/60 bg-indigo-500/5 dark:bg-indigo-950/25'
+                                                : 'border-indigo-500/30 bg-indigo-500/[0.03] hover:border-indigo-500/50'),
                                     )}
-                                </div>
-                                <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-                                    {items.map((subItem) => (
-                                        <NavLink
-                                            key={subItem.label}
-                                            href={subItem.href}
-                                            external={subItem.external}
-                                            onClick={() => setMobileOpen(false)}
-                                            className="group flex items-start gap-3 rounded-xl border border-transparent p-2.5 transition-all duration-200 hover:border-border/50 hover:bg-muted/40"
-                                        >
-                                            {subItem.icon && (
-                                                <div
+                                >
+                                    <button
+                                        type="button"
+                                        onClick={() => handleToggleMenu(item.id)}
+                                        aria-expanded={isOpen}
+                                        className="flex w-full cursor-pointer items-center justify-between p-3.5 text-left"
+                                    >
+                                        <div>
+                                            <div className="flex items-center gap-2">
+                                                <span
                                                     className={cn(
-                                                        'flex size-8 shrink-0 items-center justify-center rounded-lg transition-transform duration-200 group-hover:scale-105',
-                                                        subItem.iconBg ||
-                                                            'bg-primary/10',
-                                                        subItem.iconColor ||
-                                                            'text-primary',
+                                                        'text-sm font-semibold tracking-wide',
+                                                        item.featured
+                                                            ? 'bg-gradient-to-r from-indigo-500 via-primary to-indigo-500 bg-clip-text text-transparent'
+                                                            : 'text-foreground',
                                                     )}
                                                 >
-                                                    <NavIcon
-                                                        name={subItem.icon}
-                                                        className="size-4"
-                                                    />
-                                                </div>
-                                            )}
-                                            <div className="min-w-0 flex-1">
-                                                <div className="flex items-center justify-between gap-2">
-                                                    <span className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">
-                                                        {subItem.label}
+                                                    {item.label}
+                                                </span>
+                                                {item.featured && (
+                                                    <span className="rounded-full bg-indigo-500/10 px-2 py-0.5 text-[10px] font-semibold text-indigo-600 dark:text-indigo-400">
+                                                        Featured
                                                     </span>
-                                                    {subItem.badge && (
-                                                        <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
-                                                            {typeof subItem.badge ===
-                                                            'string'
-                                                                ? subItem.badge
-                                                                : subItem.badge
-                                                                      .text}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                                {subItem.description && (
-                                                    <p className="line-clamp-1 text-xs text-muted-foreground/80">
-                                                        {subItem.description}
-                                                    </p>
                                                 )}
                                             </div>
-                                        </NavLink>
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    })}
+                                            {item.heading && (
+                                                <span className="line-clamp-1 text-[11px] text-muted-foreground">
+                                                    {item.heading}
+                                                </span>
+                                            )}
+                                        </div>
 
-                    {/* Standard Direct Links */}
-                    {standardDirectLinks.length > 0 && (
-                        <div className="space-y-3">
-                            <div className="border-b border-border/30 pb-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-                                Quick Links
-                            </div>
-                            <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-                                {standardDirectLinks.map((link) => (
-                                    <NavLink
-                                        key={link.id || link.label}
-                                        href={link.href}
-                                        external={link.external}
-                                        onClick={() => setMobileOpen(false)}
-                                        className="group flex items-center gap-3 rounded-xl border border-transparent p-2.5 transition-all duration-200 hover:border-border/50 hover:bg-muted/40"
-                                    >
-                                        {link.icon && (
-                                            <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-200 group-hover:scale-105">
-                                                <NavIcon
-                                                    name={link.icon}
-                                                    className="size-4"
-                                                />
-                                            </div>
+                                        <div className="flex items-center gap-2 text-muted-foreground">
+                                            <span className="text-[11px] font-medium opacity-70">
+                                                {items.length}
+                                            </span>
+                                            <ChevronDown
+                                                className={cn(
+                                                    'size-4 transition-transform duration-200',
+                                                    isOpen && 'rotate-180 text-primary',
+                                                )}
+                                            />
+                                        </div>
+                                    </button>
+
+                                    {/* Collapsible Content */}
+                                    <AnimatePresence initial={false}>
+                                        {isOpen && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{
+                                                    duration: 0.22,
+                                                    ease: [0.16, 1, 0.3, 1],
+                                                }}
+                                                className="overflow-hidden border-t border-border/40"
+                                            >
+                                                <div className="space-y-2 bg-muted/20 p-3 dark:bg-zinc-950/40">
+                                                    {items.map((subItem, catIdx) => {
+                                                        const catKey = `${item.id}-${catIdx}`;
+                                                        const isCatOpen =
+                                                            openCategoryKey === catKey;
+                                                        const hasChildren =
+                                                            subItem.children &&
+                                                            subItem.children.length > 0;
+
+                                                        return (
+                                                            <div
+                                                                key={subItem.label}
+                                                                className={cn(
+                                                                    'overflow-hidden rounded-lg border transition-all duration-150',
+                                                                    isCatOpen
+                                                                        ? 'border-blue-500/30 bg-background shadow-xs dark:bg-zinc-900/90'
+                                                                        : 'border-border/40 bg-background/60 hover:border-border hover:bg-background/90 dark:bg-zinc-900/40',
+                                                                )}
+                                                            >
+                                                                {hasChildren ? (
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() =>
+                                                                            handleToggleCategory(
+                                                                                catKey,
+                                                                            )
+                                                                        }
+                                                                        aria-expanded={isCatOpen}
+                                                                        className="flex w-full cursor-pointer items-start justify-between p-2.5 text-left"
+                                                                    >
+                                                                        <div className="min-w-0 flex-1">
+                                                                            <div className="flex items-center gap-1.5">
+                                                                                <span className="truncate text-xs font-semibold text-foreground">
+                                                                                    {subItem.label}
+                                                                                </span>
+                                                                                {subItem.badge && (
+                                                                                    <span className="shrink-0 rounded-full bg-emerald-500/10 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">
+                                                                                        {typeof subItem.badge ===
+                                                                                        'string'
+                                                                                            ? subItem.badge
+                                                                                            : subItem.badge.text}
+                                                                                    </span>
+                                                                                )}
+                                                                            </div>
+                                                                            {subItem.description && (
+                                                                                <p className="line-clamp-1 text-[11px] text-muted-foreground">
+                                                                                    {subItem.description}
+                                                                                </p>
+                                                                            )}
+                                                                        </div>
+
+                                                                        <div className="flex items-center gap-1.5 pl-2 pt-0.5 text-muted-foreground">
+                                                                            <span className="text-[10px] font-medium opacity-60">
+                                                                                {
+                                                                                    subItem
+                                                                                        .children!
+                                                                                        .length
+                                                                                }
+                                                                            </span>
+                                                                            <ChevronDown
+                                                                                className={cn(
+                                                                                    'size-3.5 transition-transform duration-200',
+                                                                                    isCatOpen &&
+                                                                                        'rotate-180 text-blue-600 dark:text-blue-400',
+                                                                                )}
+                                                                            />
+                                                                        </div>
+                                                                    </button>
+                                                                ) : (
+                                                                    <NavLink
+                                                                        href={subItem.href}
+                                                                        external={subItem.external}
+                                                                        onClick={() =>
+                                                                            setMobileOpen(false)
+                                                                        }
+                                                                        className="flex w-full items-start justify-between p-2.5 text-left"
+                                                                    >
+                                                                        <div className="min-w-0 flex-1">
+                                                                            <span className="truncate text-xs font-semibold text-foreground">
+                                                                                {subItem.label}
+                                                                            </span>
+                                                                            {subItem.description && (
+                                                                                <p className="line-clamp-1 text-[11px] text-muted-foreground">
+                                                                                    {subItem.description}
+                                                                                </p>
+                                                                            )}
+                                                                        </div>
+                                                                        <ChevronRight className="mt-0.5 size-3.5 text-muted-foreground" />
+                                                                    </NavLink>
+                                                                )}
+
+                                                                {/* Sub-links (children) accordion */}
+                                                                {hasChildren && (
+                                                                    <AnimatePresence initial={false}>
+                                                                        {isCatOpen && (
+                                                                            <motion.div
+                                                                                initial={{
+                                                                                    height: 0,
+                                                                                    opacity: 0,
+                                                                                }}
+                                                                                animate={{
+                                                                                    height: 'auto',
+                                                                                    opacity: 1,
+                                                                                }}
+                                                                                exit={{
+                                                                                    height: 0,
+                                                                                    opacity: 0,
+                                                                                }}
+                                                                                transition={{
+                                                                                    duration: 0.18,
+                                                                                    ease: 'easeOut',
+                                                                                }}
+                                                                                className="overflow-hidden border-t border-border/40 bg-muted/30 px-3 py-2 dark:bg-zinc-950/60"
+                                                                            >
+                                                                                <div className="grid grid-cols-1 gap-1">
+                                                                                    {subItem.children!.map(
+                                                                                        (child) => (
+                                                                                            <NavLink
+                                                                                                key={
+                                                                                                    child.label
+                                                                                                }
+                                                                                                href={
+                                                                                                    child.href
+                                                                                                }
+                                                                                                external={
+                                                                                                    child.external
+                                                                                                }
+                                                                                                onClick={() =>
+                                                                                                    setMobileOpen(
+                                                                                                        false,
+                                                                                                    )
+                                                                                                }
+                                                                                                className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-xs font-medium text-foreground/90 transition-colors hover:bg-background hover:text-blue-600 dark:hover:text-blue-400"
+                                                                                            >
+                                                                                                <span className="size-1.5 shrink-0 rounded-[1px] bg-blue-600 dark:bg-blue-400" />
+                                                                                                <span className="flex-1 truncate">
+                                                                                                    {
+                                                                                                        child.label
+                                                                                                    }
+                                                                                                </span>
+                                                                                                <ArrowRight className="size-3 text-muted-foreground/30 transition-transform group-hover:translate-x-0.5 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+                                                                                            </NavLink>
+                                                                                        ),
+                                                                                    )}
+                                                                                </div>
+
+                                                                                {subItem.note && (
+                                                                                    <p className="mt-2 border-t border-border/30 px-1 pt-1.5 text-[10px] italic text-muted-foreground">
+                                                                                        {subItem.note}
+                                                                                    </p>
+                                                                                )}
+
+                                                                                <div className="mt-2 border-t border-border/30 pt-1.5">
+                                                                                    <NavLink
+                                                                                        href={subItem.href}
+                                                                                        external={subItem.external}
+                                                                                        onClick={() => setMobileOpen(false)}
+                                                                                        className="flex items-center gap-1.5 px-1 text-[11px] font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                                                                                    >
+                                                                                        <span>View {subItem.label}</span>
+                                                                                        <ArrowRight className="size-3" />
+                                                                                    </NavLink>
+                                                                                </div>
+                                                                            </motion.div>
+                                                                        )}
+                                                                    </AnimatePresence>
+                                                                )}
+                                                            </div>
+                                                        );
+                                                    })}
+
+                                                    {/* Showcase Action Button */}
+                                                    {showcaseActionLabels[item.id] && (
+                                                        <div className="pt-1">
+                                                            <NavLink
+                                                                href={showcaseActionLabels[item.id].href}
+                                                                onClick={() => setMobileOpen(false)}
+                                                                className="flex items-center justify-between rounded-lg bg-blue-600/10 px-3.5 py-2.5 text-xs font-semibold text-blue-600 transition-colors hover:bg-blue-600/15 dark:bg-blue-500/10 dark:text-blue-400"
+                                                            >
+                                                                <span>{showcaseActionLabels[item.id].label}</span>
+                                                                <ArrowRight className="size-3.5" />
+                                                            </NavLink>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </motion.div>
                                         )}
-                                        <span className="flex-1 truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">
-                                            {link.label}
+                                    </AnimatePresence>
+                                </div>
+                            );
+                        }
+
+                        if (isDirectLink(item)) {
+                            return (
+                                <div
+                                    key={item.id || item.label}
+                                    className="overflow-hidden rounded-xl border border-border/60 bg-card/60 transition-all duration-200 hover:border-border hover:bg-card/90 dark:bg-zinc-900/40"
+                                >
+                                    <NavLink
+                                        href={item.href}
+                                        external={item.external}
+                                        onClick={() => setMobileOpen(false)}
+                                        className="group flex w-full items-center justify-between p-3.5 text-left"
+                                    >
+                                        <span className="text-sm font-semibold text-foreground">
+                                            {item.label}
                                         </span>
-                                        <ChevronRight className="size-4 text-muted-foreground/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />
+                                        <ArrowRight className="size-4 text-muted-foreground/60 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />
                                     </NavLink>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                                </div>
+                            );
+                        }
+
+                        return null;
+                    })}
                 </div>
             </div>
 
