@@ -173,14 +173,14 @@ Before installing the project, ensure you have the following installed on your e
 
 ### pnpm Scripts
 
-| Command               | Action                                                  |
-| :-------------------- | :------------------------------------------------------ |
-| `pnpm dev`            | Runs Vite dev server with Wayfinder routing watcher     |
-| `pnpm build`          | Builds client assets for production                     |
-| `pnpm build:ssr`      | Builds client and SSR bundles for server-side rendering |
-| `pnpm lint`           | Runs ESLint and auto-fixes JavaScript/TypeScript issues |
-| `pnpm format`         | Runs Prettier to format source files                    |
-| `pnpm types:check`    | Runs TypeScript compiler type check (`tsc --noEmit`)    |
+| Command            | Action                                                  |
+| :----------------- | :------------------------------------------------------ |
+| `pnpm dev`         | Runs Vite dev server with Wayfinder routing watcher     |
+| `pnpm build`       | Builds client assets for production                     |
+| `pnpm build:ssr`   | Builds client and SSR bundles for server-side rendering |
+| `pnpm lint`        | Runs ESLint and auto-fixes JavaScript/TypeScript issues |
+| `pnpm format`      | Runs Prettier to format source files                    |
+| `pnpm types:check` | Runs TypeScript compiler type check (`tsc --noEmit`)    |
 
 ---
 

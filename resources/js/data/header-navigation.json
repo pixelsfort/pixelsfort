@@ -266,6 +266,101 @@
     ]
   },
   {
+    "id": "industries",
+    "label": "Industries",
+    "type": "dropdown",
+    "heading": "Domain-Specific Enterprise Engineering",
+    "layout": "grid",
+    "columns": 2,
+    "dropdownWidth": "w-[540px]",
+    "items": [
+      {
+        "label": "FinTech & Banking",
+        "description": "Trading, payments & compliance",
+        "href": "#industry-fintech",
+        "note": "Bank-grade security, PCI-DSS compliance, and microsecond transaction processing.",
+        "children": [
+          { "label": "Digital Banking Platforms", "href": "#digital-banking" },
+          { "label": "Payment Gateways & Wallets", "href": "#payment-gateways" },
+          { "label": "High-Frequency Trading Engines", "href": "#trading-engines" },
+          { "label": "Fraud Detection & AML", "href": "#fraud-detection" },
+          { "label": "Blockchain & Asset Tokenization", "href": "#blockchain-assets" },
+          { "label": "Regulatory & PCI Compliance", "href": "#fintech-compliance" }
+        ]
+      },
+      {
+        "label": "Healthcare & Life Sciences",
+        "description": "HIPAA-compliant MedTech & EHR",
+        "href": "#industry-healthcare",
+        "note": "HIPAA/HITRUST compliant architectures safeguarding patient privacy.",
+        "children": [
+          { "label": "Telemedicine & Virtual Care", "href": "#telemedicine" },
+          { "label": "EHR & FHIR Interoperability", "href": "#ehr-fhir" },
+          { "label": "Medical Device IoT & Firmware", "href": "#medical-iot" },
+          { "label": "Clinical Workflow Automation", "href": "#clinical-workflows" },
+          { "label": "Genomics & Diagnostic AI", "href": "#diagnostic-ai" },
+          { "label": "HIPAA Compliant Cloud Portals", "href": "#hipaa-cloud" }
+        ]
+      },
+      {
+        "label": "Retail & E-Commerce",
+        "description": "Omnichannel & headless commerce",
+        "href": "#industry-retail",
+        "note": "Unified digital storefronts that convert visitors into lifetime customers.",
+        "children": [
+          { "label": "Headless Commerce Architectures", "href": "#headless-retail" },
+          { "label": "Inventory & Warehouse Sync", "href": "#inventory-management" },
+          { "label": "AI Recommendation Engines", "href": "#ai-recommendations" },
+          { "label": "Omnichannel Point-of-Sale (POS)", "href": "#omnichannel-pos" },
+          { "label": "B2B Wholesale Marketplaces", "href": "#b2b-marketplaces" },
+          { "label": "Loyalty & Subscription Programs", "href": "#loyalty-programs" }
+        ]
+      },
+      {
+        "label": "Logistics & Supply Chain",
+        "description": "Fleet tracking & warehouse management",
+        "href": "#industry-logistics",
+        "note": "Real-time telemetry and predictive routing for end-to-end cargo visibility.",
+        "children": [
+          { "label": "Fleet Telematics & Tracking", "href": "#fleet-telematics" },
+          { "label": "Warehouse Management (WMS)", "href": "#wms-systems" },
+          { "label": "Route Optimization Engines", "href": "#route-optimization" },
+          { "label": "Freight Matching Platforms", "href": "#freight-matching" },
+          { "label": "Last-Mile Delivery Apps", "href": "#last-mile" },
+          { "label": "Supply Chain Visibility Portals", "href": "#supply-chain-visibility" }
+        ]
+      },
+      {
+        "label": "Real Estate & PropTech",
+        "description": "Property management & virtual tours",
+        "href": "#industry-proptech",
+        "note": "Modernizing asset valuation, tenant experience, and facility operations.",
+        "children": [
+          { "label": "Property Management Software", "href": "#property-management" },
+          { "label": "Real Estate Listing Portals", "href": "#listing-portals" },
+          { "label": "Smart Building & IoT Automation", "href": "#smart-buildings" },
+          { "label": "Digital Lease & Tenant Portals", "href": "#lease-portals" },
+          { "label": "Automated Valuation Models (AVM)", "href": "#property-valuation" },
+          { "label": "Virtual 3D Tour Integrations", "href": "#virtual-tours" }
+        ]
+      },
+      {
+        "label": "Manufacturing & Industrial",
+        "description": "Industry 4.0 & predictive maintenance",
+        "href": "#industry-manufacturing",
+        "note": "Maximizing factory floor yield with IoT telemetry and computer vision.",
+        "children": [
+          { "label": "Industrial IoT & SCADA Systems", "href": "#industrial-iot" },
+          { "label": "Predictive Maintenance Models", "href": "#predictive-maintenance" },
+          { "label": "Computer Vision Quality Control", "href": "#vision-quality" },
+          { "label": "Digital Twin Simulations", "href": "#digital-twins" },
+          { "label": "ERP & MES Shopfloor Bridges", "href": "#mes-integration" },
+          { "label": "Energy Consumption Optimization", "href": "#energy-optimization" }
+        ]
+      }
+    ]
+  },
+  {
     "id": "company",
     "label": "Company",
     "type": "dropdown",

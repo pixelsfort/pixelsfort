@@ -86,6 +86,23 @@ const megamenuShowcases: Record<string, MegamenuShowcase> = {
             { value: '32%', accent: '', label: 'CLOUD SAVINGS' },
         ],
     },
+    industries: {
+        badge: {
+            text: 'DOMAIN EXPERTISE',
+        },
+        title: 'Deep vertical intelligence & industry-grade software!',
+        description:
+            'From HIPAA-compliant healthcare portals to ultra-low latency fintech platforms, we build software engineered for regulatory standards —',
+        highlightText: 'Enterprise Scale!',
+        cta: {
+            label: 'Discuss Your Industry',
+            href: '/#contact',
+        },
+        stats: [
+            { value: '12+', accent: '', label: 'CORE VERTICALS' },
+            { value: '100%', accent: '', label: 'COMPLIANCE AUDITED' },
+        ],
+    },
     company: {
         badge: {
             text: "WE'RE HIRING",
@@ -123,7 +140,7 @@ export function NavDropdownItemContent({
                         {item.label}
                     </span>
                     {item.badge && (
-                        <span className="shrink-0 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
+                        <span className="shrink-0 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600">
                             {typeof item.badge === 'string'
                                 ? item.badge
                                 : item.badge.text}
@@ -192,7 +209,7 @@ export function DesktopNav({
                                         <img
                                             src="/ai-icon.svg"
                                             alt="AI"
-                                            className="h-6 w-6"
+                                            className="h-4 w-4"
                                         />
                                     </sup>
                                 )}
@@ -236,7 +253,7 @@ export function DesktopNav({
                                         <img
                                             src="/ai-icon.svg"
                                             alt="AI"
-                                            className="h-6 w-6"
+                                            className="h-4 w-4"
                                         />
                                     </sup>
                                     <span className="bg-gradient-to-r from-indigo-400 via-primary to-indigo-400 bg-clip-text text-transparent">
@@ -358,7 +375,7 @@ export function MegamenuContainer({
             onMouseLeave={onMouseLeave}
         >
             <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-                <div className="overflow-hidden rounded-b-2xl border-x border-b border-border/80 bg-background/98 shadow-2xl backdrop-blur-2xl ring-1 ring-black/5 dark:border-zinc-800/80 dark:bg-zinc-950/98 dark:ring-white/10">
+                <div className="overflow-hidden rounded-b-2xl border-x border-b border-border/80 bg-background/98 shadow-2xl backdrop-blur-2xl ring-1 ring-border/50">
                     <motion.div
                         key={activeMenuId}
                         initial={{ opacity: 0, y: 8 }}
@@ -373,7 +390,7 @@ export function MegamenuContainer({
                             {/* Left Category Column */}
                             <div className="lg:col-span-3">
                                 <div className="mb-3 px-1">
-                                    <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary">
                                         {currentMenu.label}
                                     </span>
                                 </div>
@@ -392,10 +409,10 @@ export function MegamenuContainer({
                                                     setActiveCategoryIndex(idx)
                                                 }
                                                 className={cn(
-                                                    'group flex w-full cursor-pointer items-center justify-between rounded-md px-3.5 py-2.5 text-left text-sm transition-all duration-150',
+                                                    'group flex w-full cursor-pointer items-center justify-between px-3.5 py-2.5 text-left text-sm transition-all duration-150',
                                                     isActive
-                                                        ? 'border-l-2 border-blue-600 bg-blue-50/80 font-semibold text-blue-600 dark:border-blue-500 dark:bg-blue-950/40 dark:text-blue-400'
-                                                        : 'border-l-2 border-transparent font-medium text-slate-700 hover:bg-slate-100/70 dark:text-slate-300 dark:hover:bg-zinc-900/60',
+                                                        ? 'border-l-2 border-primary bg-primary/5 font-semibold text-primary'
+                                                        : 'border-l-2 border-transparent font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground',
                                                 )}
                                             >
                                                 <span className="truncate">
@@ -405,8 +422,8 @@ export function MegamenuContainer({
                                                     className={cn(
                                                         'size-3.5 shrink-0 transition-transform duration-150',
                                                         isActive
-                                                            ? 'text-blue-600 dark:text-blue-400 translate-x-0.5'
-                                                            : 'text-slate-400 group-hover:text-slate-600 dark:text-zinc-500',
+                                                            ? 'text-primary translate-x-0.5'
+                                                            : 'text-muted-foreground/60 group-hover:text-foreground',
                                                     )}
                                                 />
                                             </button>
@@ -419,7 +436,7 @@ export function MegamenuContainer({
                             <div className="flex flex-col justify-between lg:col-span-5 xl:col-span-5">
                                 <div>
                                     <div className="mb-4 flex items-center justify-between border-b border-border/50 pb-2.5">
-                                        <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                                        <span className="text-[11px] font-bold uppercase tracking-wider text-primary">
                                             {activeCategory?.label}
                                         </span>
                                     </div>
@@ -439,9 +456,9 @@ export function MegamenuContainer({
                                                     href={child.href}
                                                     external={child.external}
                                                     onClick={onClose}
-                                                    className="group flex items-start gap-2.5 py-0.5 text-sm font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400"
+                                                    className="group flex items-start gap-2.5 py-0.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
                                                 >
-                                                    <span className="size-1.5 shrink-0 rounded-[1px] bg-blue-600 dark:bg-blue-400 mt-2 transition-transform duration-150 group-hover:scale-125" />
+                                                    <span className="size-1.5 shrink-0 rounded-[1px] bg-primary mt-2 transition-transform duration-150 group-hover:scale-125" />
                                                     <span className="transition-transform duration-150 group-hover:translate-x-0.5">
                                                         {child.label}
                                                     </span>
@@ -456,7 +473,7 @@ export function MegamenuContainer({
                                     {activeCategory?.note ? (
                                         activeCategory.note.includes('?') ? (
                                             <p className="text-xs text-muted-foreground">
-                                                <span className="font-semibold text-slate-800 dark:text-slate-200">
+                                                <span className="font-semibold text-foreground">
                                                     {
                                                         activeCategory.note.split(
                                                             '?',
@@ -487,19 +504,19 @@ export function MegamenuContainer({
 
                             {/* Right Showcase Column */}
                             <div className="lg:col-span-4 xl:col-span-4">
-                                <div className="flex h-full flex-col justify-between rounded-xl bg-[#071936] p-6 lg:p-7 text-white shadow-xl dark:bg-[#06152d] border border-blue-900/30">
+                                <div className="flex h-full flex-col justify-between rounded-xl border border-primary/20 bg-card p-6 lg:p-7 text-card-foreground shadow-xl">
                                     <div>
-                                        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-400">
+                                        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
                                             <span>✦</span>
                                             <span>{showcase.badge.text}</span>
                                         </div>
-                                        <h3 className="mt-3.5 font-funnel text-xl font-bold leading-snug text-white">
+                                        <h3 className="mt-3.5 font-funnel text-xl font-bold leading-snug text-foreground">
                                             {showcase.title}
                                         </h3>
-                                        <p className="mt-3 text-xs leading-relaxed text-slate-300">
+                                        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
                                             {showcase.description}{' '}
                                             {showcase.highlightText && (
-                                                <span className="font-semibold text-white">
+                                                <span className="font-semibold text-foreground">
                                                     {showcase.highlightText}
                                                 </span>
                                             )}
@@ -509,23 +526,23 @@ export function MegamenuContainer({
                                     <div>
                                         {showcase.stats &&
                                             showcase.stats.length > 0 && (
-                                                <div className="mt-6 mb-5 grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
+                                                <div className="mt-6 mb-5 grid grid-cols-2 gap-4 border-t border-border pt-4">
                                                     {showcase.stats.map(
                                                         (stat) => (
                                                             <div
                                                                 key={stat.label}
                                                             >
-                                                                <div className="text-xl font-bold tracking-tight text-white">
+                                                                <div className="text-xl font-bold tracking-tight text-foreground">
                                                                     {stat.value}
                                                                     {stat.accent && (
-                                                                        <span className="ml-1 font-bold text-blue-400">
+                                                                        <span className="ml-1 font-bold text-primary">
                                                                             {
                                                                                 stat.accent
                                                                             }
                                                                         </span>
                                                                     )}
                                                                 </div>
-                                                                <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                                                                <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                                                                     {stat.label}
                                                                 </div>
                                                             </div>
@@ -538,7 +555,7 @@ export function MegamenuContainer({
                                             href={showcase.cta.href}
                                             external={showcase.cta.external}
                                             onClick={onClose}
-                                            className="group/cta flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all duration-200 hover:bg-blue-500 active:scale-[0.99]"
+                                            className="group/cta flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/25 transition-all duration-200 hover:bg-primary/90 active:scale-[0.99]"
                                         >
                                             <span>{showcase.cta.label}</span>
                                             <ArrowRight className="size-4 transition-transform duration-200 group-hover/cta:translate-x-1" />
@@ -550,7 +567,7 @@ export function MegamenuContainer({
                     </motion.div>
 
                     {/* Bottom Quick Links Strip */}
-                    <div className="flex flex-col items-center justify-between gap-3 border-t border-border/50 bg-muted/30 px-6 py-3.5 text-xs text-muted-foreground dark:bg-zinc-900/40 sm:flex-row lg:px-8">
+                    <div className="flex flex-col items-center justify-between gap-3 border-t border-border/50 bg-muted/30 px-6 py-3.5 text-xs text-muted-foreground sm:flex-row lg:px-8">
                         <div className="flex items-center gap-2">
                             <span className="font-semibold text-foreground">
                                 PixelsFort
@@ -621,6 +638,14 @@ export function SolutionsDropdown() {
     ) as NavDropdownMenu | undefined;
 
     return solutions ? <NavDropdown menu={solutions} /> : null;
+}
+
+export function IndustriesDropdown() {
+    const industries = headerNavItems.find(
+        (item) => isDropdownMenu(item) && item.id === 'industries',
+    ) as NavDropdownMenu | undefined;
+
+    return industries ? <NavDropdown menu={industries} /> : null;
 }
 
 export function CompanyDropdown() {

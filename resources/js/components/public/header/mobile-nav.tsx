@@ -29,6 +29,7 @@ const showcaseActionLabels: Record<string, { label: string; href: string }> = {
     ai: { label: 'Talk to our AI Experts', href: '/#contact' },
     services: { label: 'Talk to our Architects', href: '/#contact' },
     solutions: { label: 'Explore Case Studies', href: '/#case-studies' },
+    industries: { label: 'Talk to Domain Specialists', href: '/#contact' },
     company: { label: 'View Open Positions', href: '/#careers' },
 };
 

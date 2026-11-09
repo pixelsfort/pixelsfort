@@ -1,13 +1,6 @@
 import { Head } from '@inertiajs/react';
-import {
-    Code2,
-    Cloud,
-    ShieldCheck,
-    Cpu,
-    CheckCircle2,
-    Sparkles,
-} from 'lucide-react';
 import { HeroSection } from './components/hero-section';
+import { TechExpertiseSection } from './components/tech-expertise-section';
 
 export default function Home() {
     const services = [
@@ -72,6 +65,9 @@ export default function Home() {
 
             {/* Hero Section Component */}
             <HeroSection />
+
+            {/* Technology Expertise Section */}
+            <TechExpertiseSection />
         </>
     );
 }
